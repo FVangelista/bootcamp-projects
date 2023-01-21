@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.Post</title>
+    <link rel="stylesheet" href="./postStyle.css" />
+  </head>
+  <body>
+    <div class="post">
+      <!-- header -->
+
+      <div class="header">
+        <h2>.post</h2>
+        <a href="../index.html" class="link">home</a>
+      </div>
+
+      <!-- Post Form -->
+
+      <form action="" class="post-form" id="post-form">
+        <h3>post product</h3>
+        <input type="text" id="title" class="data" placeholder="title" />
+        <input type="number" id="price" class="data" placeholder="price" />
+        <input
+          type="number"
+          id="category"
+          class="data"
+          placeholder="category"
+        />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <textarea
+          id="description"
+          class="data text-data"
+          maxlength="150"
+          placeholder="description"
+        ></textarea>
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- Post Category Form -->
+
+      <form action="" class="cat-form" id="category-form">
+        <h3>post category</h3>
+        <input type="text" id="name" class="data" placeholder="name" />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- PUT form -->
+
+      <form action="" class="put-form" id="put-form">
+        <h3>update product (set id)</h3>
+        <input type="text" id="title" class="data" placeholder="title" />
+        <input type="number" id="price" class="data" placeholder="price" />
+        <input
+          type="number"
+          id="category"
+          class="data"
+          placeholder="category"
+        />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <textarea
+          id="description"
+          class="data text-data"
+          maxlength="150"
+          placeholder="description"
+        ></textarea>
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- Delete form -->
+      <form action="" class="delete-form" id="delete-form">
+        <h3>delete product (set id)</h3>
+        <input type="number" id="id" class="data" placeholder="id" />
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+    </div>
+    <script type="module" src="./post.js"></script>
+  </body>
+</html>

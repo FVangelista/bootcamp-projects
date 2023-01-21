@@ -2,6 +2,7 @@ const products = document.querySelector('.products');
 const loader = document.querySelector('.loader');
 const burger = document.querySelector('.burger');
 const cartNav = document.querySelector('.cart-nav');
+
 const cart = [];
 let total = 0;
 
@@ -15,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const newData = data.filter((item) => item.category.id === 2);
       newData.forEach((element) => {
         dataMap(element);
-        console.log(element);
+        // console.log(element);
       });
     })
     .catch((error) => {

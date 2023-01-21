@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -18,7 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   /* border: 1px solid red; */
-  height: 100vh;
+  height: 100%;
 }
 
 .header {
@@ -27,13 +26,15 @@ body {
   align-items: flex-end;
   padding: 50px;
   width: 250px;
-  color: #c5c5c5;
+  color: #fff;
   /* border: 1px solid blue; */
   text-transform: capitalize;
+  letter-spacing: 2.5px;
 }
 
 .link {
   text-decoration: none;
+  letter-spacing: 1.5px;
   color: #c5c5c5;
   transition: all 0.4s ease;
 }
@@ -42,19 +43,22 @@ body {
   color: #fff;
 }
 
-.forms {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+h3 {
+  color: #c5c5c5;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
 }
 
-.post-form {
+.post-form,
+.cat-form,
+.put-form,
+.delete-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding: 25px;
+  padding: 50px;
 }
 
 .data {
