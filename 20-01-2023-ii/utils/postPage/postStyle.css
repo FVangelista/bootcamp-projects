@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  /* border: 1px solid red; */
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-end;
+  padding: 25px;
+  width: 250px;
+  color: #fff;
+  /* border: 1px solid blue; */
+  text-transform: capitalize;
+  letter-spacing: 2.5px;
+}
+
+.link {
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  color: #c5c5c5;
+  transition: all 0.4s ease;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+h3 {
+  color: #c5c5c5;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+}
+
+.post-form,
+.cat-form,
+.put-form,
+.delete-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 100px;
+}
+
+.data {
+  padding: 5px;
+  width: 400px;
+  background-color: #c5c5c510;
+  border: none;
+  color: #fff;
+  outline: none;
+  resize: none;
+}
+
+.data::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.data::placeholder {
+  text-transform: capitalize;
+}
+
+.data:focus::placeholder {
+  color: transparent;
+}
+
+.text-data {
+  height: 150px;
+  overflow: scroll;
+}
+
+.submit-btn {
+  padding: 5px;
+  width: 25%;
+  text-transform: capitalize;
+  border: none;
+  background-color: #c5c5c5;
+  color: #000;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.submit-btn:hover {
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+
+.form-selection {
+  background: none;
+  color: #c5c5c5;
+  border: none;
+  padding: 5px;
+  width: 100px;
+  border-bottom: 1px solid #c5c5c5;
+  text-transform: capitalize;
+  outline: none;
+  cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: #c5c5c5;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 0.75rem;
+}
+
+.logo-sub {
+  font-size: 0.5rem;
+  color: #fff;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.neo-post</title>
+    <link rel="stylesheet" href="./postStyle.css" />
+  </head>
+  <body>
+    <div class="post">
+      <!-- header -->
+
+      <a href="../../index.html" class="logo"
+        ><h1>.neo <span class="logo-sub">by filippo</span></h1></a
+      >
+      <div class="header">
+        <h2>post</h2>
+        <a href="../../index.html" class="link">home</a>
+      </div>
+
+      <select name="forms" id="form-select" class="form-selection">
+        <option value="post" class="post">post</option>
+        <option value="cat">category</option>
+        <option value="put">put</option>
+        <option value="delete">delete</option>
+      </select>
+      <!-- Post Form -->
+
+      <form action="" class="post-form form" id="post-form">
+        <h3>post new product</h3>
+        <input type="text" id="title" class="data" placeholder="title" />
+        <input type="number" id="price" class="data" placeholder="price" />
+        <input
+          type="number"
+          id="category"
+          class="data"
+          placeholder="category"
+        />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <textarea
+          id="description"
+          class="data text-data"
+          maxlength="150"
+          placeholder="description"
+        ></textarea>
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- Post Category Form -->
+
+      <form action="" class="cat-form hide form" id="category-form">
+        <h3>post new category</h3>
+        <input type="text" id="name" class="data" placeholder="name" />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- PUT form -->
+
+      <form action="" class="put-form hide form" id="put-form">
+        <h3>update product (set id)</h3>
+        <input type="text" id="title" class="data" placeholder="title" />
+        <input type="number" id="price" class="data" placeholder="price" />
+        <input
+          type="number"
+          id="category"
+          class="data"
+          placeholder="category"
+        />
+        <input type="text" id="image" class="data" placeholder="image (url)" />
+        <textarea
+          id="description"
+          class="data text-data"
+          maxlength="150"
+          placeholder="description"
+        ></textarea>
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+
+      <!-- Delete form -->
+      <form action="" class="delete-form hide form" id="delete-form">
+        <h3>delete product (set id)</h3>
+        <input type="number" id="id" class="data" placeholder="id" />
+        <input type="submit" value="send" class="submit-btn" />
+      </form>
+    </div>
+    <script type="module" src="./post.js"></script>
+  </body>
+</html>
