@@ -94,7 +94,7 @@ body {
   align-self: center;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 0px 150px 110px 150px;
+  padding: 110px 150px;
   width: 75%;
   height: calc(100vh - 110px);
   overflow: scroll;
@@ -283,4 +283,17 @@ img {
 .logo-sub {
   font-size: 0.5rem;
   color: #fff;
+}
+
+.footer {
+  position: relative;
+  /* border: 1px solid blue; */
+  color: #c5c5c5;
+  font-size: 0.5rem;
+}
+
+.copy {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
 }
