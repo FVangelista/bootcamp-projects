@@ -18,10 +18,14 @@ searchInput.setAttribute('placeholder', 'username');
 bodyEl.appendChild(searchInput);
 bodyEl.appendChild(wrapper);
 
+const modalContainer = gEL('.modal-container');
+const modalImage = gEL('.modal-img');
+const modalText = gEL('.pass');
+
 // Create users cards
 
 const displayUsers = (data) => {
-  const { username, image } = data;
+  const { username, image, password } = data;
   const { address, city } = data.address;
   const { lat, lng } = data.address.coordinates;
 
@@ -32,15 +36,19 @@ const displayUsers = (data) => {
   const img = cEl('img');
   img.classList.add('u-img');
   const user = cEl('p');
+  user.classList.add('t-info');
   const userAddr = cEl('p');
+  userAddr.classList.add('t-info');
   const lati = cEl('p');
+  lati.classList.add('t-info');
   const lngi = cEl('p');
+  lngi.classList.add('t-info');
 
   img.setAttribute('src', image);
-  user.textContent = `Username: ${username}`;
-  userAddr.textContent = `Address: ${address} - ${city}`;
-  lati.textContent = `Latitude: ${lat}`;
-  lngi.textContent = `Longitude: (${lng})`;
+  user.innerHTML = `<span class="keys">Username:</span> ${username}`;
+  userAddr.innerHTML = `<span class="keys">Address:</span> ${address} - ${city}`;
+  lati.innerHTML = `<span class="keys">Lat:</span> (${lat})`;
+  lngi.innerHTML = `<span class="keys">Lng:</span> (${lng})`;
 
   wrapper.appendChild(container);
   container.appendChild(img);
@@ -49,6 +57,18 @@ const displayUsers = (data) => {
   infos.appendChild(userAddr);
   infos.appendChild(lati);
   infos.appendChild(lngi);
+
+  // Modal
+
+  container.addEventListener('click', () => {
+    modalImage.setAttribute('src', image);
+    modalText.textContent = `Password: ${password}`;
+    modalContainer.classList.remove('hidden');
+  });
+
+  modalContainer.addEventListener('click', () => {
+    modalContainer.classList.add('hidden');
+  });
 };
 
 // Get all users & display onload
