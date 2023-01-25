@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  height: 100vh;
+  background-color: #000;
+}
+
+.q-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  border: 0.5px solid white;
+  height: 40%;
+  max-width: 400px;
+  overflow: scroll;
+}
+
+.q-center {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: fit-content;
+
+  width: 100%;
+  color: #c5c5c5;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+}
+
+.line {
+  height: 0.5px;
+  width: 100%;
+  margin: 5px 0px;
+  background-color: #c5c5c5;
+  align-self: center;
+}
+
+.line::after {
+  content: ' ';
+  display: inline-block;
+}
+
+.author {
+  color: #fff;
+  font-weight: 900;
+  align-self: flex-end;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+  padding: 15px 0px;
+  width: 100%;
+  user-select: none;
+}
+
+.r-quote {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* border: 0.5px solid white; */
+  height: 30%;
+  max-width: 400px;
+  padding: 25px;
+}
+
+.r-center {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  min-height: 100%;
+  width: 100%;
+  color: #c5c5c5;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+  overflow: scroll;
+}
+
+.r-btn {
+  position: absolute;
+  bottom: 10%;
+  align-self: center;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  width: 150px;
+  background-color: #c5c5c5;
+  transition: all 0.4s ease-in-out;
+}
+
+.r-btn:hover {
+  color: #fff;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: #c5c5c5;
+  font-size: 1.2rem;
+  cursor: default;
+  user-select: none;
+}
+
+.sub {
+  color: #fff;
+  font-size: 0.6rem;
+}
+
+@media screen and (max-width: 350px) {
+  body {
+    gap: 10px;
+  }
+
+  .r-center,
+  .q-center {
+    font-size: 0.75rem;
+    line-height: 15px;
+    padding: 5px;
+  }
+
+  .r-btn {
+    bottom: 5%;
+  }
+}
