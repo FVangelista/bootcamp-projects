@@ -1,32 +1,24 @@
-// AUX
-
-const gEL = (el) => document.querySelector(el);
-const cEL = (el) => document.createElement(el);
+import GET from './api.js';
+import { gEL, cEL } from './utils.js';
 
 // Project
 
-const GET = async (endpoint, curr) => {
-  const res = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curr}&order=market_cap_desc&per_page=${endpoint}&page=1&sparkline=false`
-  );
-  const data = await res.json();
-  return data;
-};
-
-GET(12, 'eur').then((coins) => {
+GET('eur').then((coins) => {
   coins.forEach((coin) => {
     displayDash(coin);
   });
 });
 
-const wrapper = document.querySelector('.wrapper');
-const nameWrapper = document.querySelector('.names-container');
+const wrapper = gEL('.wrapper');
+const nContainer = gEL('.n-container');
 
 const displayDash = (data) => {
-  const name = cEL('p');
-  name.classList.add('name');
-  const price = cEL('span');
-  price.classList.add('price');
+  const { current_price: price, high_24h: high, low_24h: low, image } = data;
+
+  const infoContainer = cEL('div');
+  infoContainer.classList.add('info');
+  const pText = cEL('span');
+  pText.classList.add('price');
 
   const canddles = cEL('div');
   canddles.classList.add('canddles-wrapper');
@@ -38,38 +30,40 @@ const displayDash = (data) => {
   highs.classList.add('highs-price');
   const lows = cEL('span');
   lows.classList.add('lows-price');
+  const img = cEL('img');
+  img.classList.add('logo-coin');
+  img.setAttribute('src', image);
 
-  name.textContent = data.name;
+  pText.textContent = ` EUR (${price.toFixed(2)})`;
 
-  price.textContent = ` EUR (${data.current_price.toFixed(2)})`;
+  scaleValues(high, green);
+  scaleValues(low, red);
 
-  if (data.high_24h < 1 && data.low_24h < 1) {
-    green.style.width = `${data.high_24h * 50}%`;
-    red.style.width = `${data.low_24h * 50}%`;
-  } else if (data.high_24h > 10000 && data.low_24h > 10000) {
-    green.style.width = `${data.high_24h / 500}%`;
-    red.style.width = `${data.low_24h / 500}%`;
-  } else if (
-    data.high_24h > 1000 &&
-    data.high_24h < 10000 &&
-    data.low_24h > 1000 &&
-    data.low_24h < 10000
-  ) {
-    green.style.width = `${data.high_24h / 50}%`;
-    red.style.width = `${data.low_24h / 50}%`;
-  } else {
-    green.style.width = `${data.high_24h / 5}%`;
-    red.style.width = `${data.low_24h / 5}%`;
-  }
+  highs.textContent = high;
+  lows.textContent = low;
 
-  highs.textContent = data.high_24h;
-  lows.textContent = data.low_24h;
-
-  nameWrapper.appendChild(name);
-  name.appendChild(price);
+  nContainer.appendChild(infoContainer);
+  infoContainer.appendChild(img);
+  infoContainer.appendChild(pText);
   wrapper.appendChild(canddles);
   canddles.appendChild(green);
   canddles.appendChild(red);
   green.appendChild(highs);
   red.appendChild(lows);
+};
+
+// Scale values function
+
+const scaleValues = (x, color) => {
+  if (x > 10000) {
+    color.style.width = `${x / 500}%`;
+  } else if (x > 1000 && x < 10000) {
+    color.style.width = `${x / 50}%`;
+  } else if (x > 100 && x < 1000) {
+    color.style.width = `${x / 10}%`;
+  } else if (x < 100 && x > 10) {
+    color.style.width = `${x / 2}%`;
+  } else {
+    color.style.width = `${x}%`;
+  }
 };

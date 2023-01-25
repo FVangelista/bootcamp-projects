@@ -9,6 +9,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -16,20 +17,27 @@ body {
   background-color: black;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65vw;
+  height: 65vh;
+  margin: 25px;
+}
+
 .wrapper {
-  /* border: 1px solid #fff; */
-  position: relative;
   height: 600px;
   width: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 15px;
+  overflow: scroll;
 }
 
 .canddles-wrapper {
   position: relative;
-  border-bottom: 0.5px solid #c5c5c5;
   height: 40px;
   display: flex;
   flex-direction: column;
@@ -37,39 +45,41 @@ body {
   padding: 10px;
 }
 
+.canddles-wrapper:last-child,
+.info:last-child {
+  border: none;
+}
+
 .green,
 .red {
-  height: 5px;
+  height: 6px;
 }
 
 .green {
-  /* width: 60%; */
-  border: 0.5px solid green;
+  background-color: rgba(0, 128, 0, 0.5);
 }
 
 .highs-price {
   position: absolute;
-  top: 5px;
+  top: 6px;
   right: 20px;
   color: green;
-  font-size: 0.4rem;
+  font-size: 0.65rem;
 }
 
 .red {
-  /* width: 40%; */
-  border: 0.5px solid red;
+  background-color: rgba(255, 0, 0, 0.5);
 }
 
 .lows-price {
   position: absolute;
-  top: 15px;
+  bottom: 6px;
   right: 20px;
   color: red;
-  font-size: 0.4rem;
+  font-size: 0.65rem;
 }
 
-.names-container {
-  /* border: 1px solid #fff; */
+.n-container {
   height: 600px;
   width: 150px;
   padding: 15px;
@@ -78,41 +88,48 @@ body {
   gap: 10px;
 }
 
-.name {
-  border-bottom: 0.5px solid #c5c5c5;
+.info {
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #c5c5c5;
-  font-size: 0.5rem;
 }
 
 .price {
-  font-size: 0.5rem;
+  font-size: 0.65rem;
+  color: #fff;
+}
+
+.logo-coin {
+  width: 20px;
+}
+
+/* Default */
+
+.title {
+  text-transform: capitalize;
+  margin: 25px 0px;
   color: #fff;
 }
 
 .logo {
   position: absolute;
-  font-size: 1.2rem;
-  left: 5%;
   top: 5%;
+  left: 5%;
   color: #c5c5c5;
-  user-select: none;
+  font-size: 1.2rem;
 }
 
 .sub {
-  font-size: 0.4rem;
   color: #fff;
+  font-size: 0.6rem;
 }
 
-.footer {
-  position: absolute;
-  /* border: 1px solid blue; */
-  color: #c5c5c5;
-  font-size: 0.4rem;
+.f-copy {
+  position: fixed;
   bottom: 0;
   right: 5%;
-  user-select: none;
+  font-size: 0.6rem;
+  color: #c5c5c5;
 }
