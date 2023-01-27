@@ -67,3 +67,17 @@ body {
   right: 5%;
   font-size: 0.6rem;
 }
+
+.input-time {
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+  background-color: #000;
+  border: none;
+  color: #c5c5c5;
+  outline: none;
+  resize: none;
+}
+.input-time::placeholder {
+  color: #fff;
+}
