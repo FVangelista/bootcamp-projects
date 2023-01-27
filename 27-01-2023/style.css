@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #c5c5c5;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  height: 100vh;
+}
+
+.category {
+  /* border: 1px solid red; */
+  height: 50vh;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.cards-container {
+  /* border: 1px solid yellow; */
+  height: 250px;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.movie-card {
+  /* border: 1px solid blue; */
+  width: 150px;
+  height: 100%;
+  flex: 0 0 auto;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  filter: grayscale(75%);
+  cursor: crosshair;
+}
+
+.movie-card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.search-input {
+  padding: 5px;
+  width: 150px;
+  background-color: #c5c5c510;
+  border: none;
+  color: #fff;
+  outline: none;
+  resize: none;
+}
+
+.search-input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.search-input::placeholder {
+  text-transform: capitalize;
+}
+
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
+.title {
+  text-transform: capitalize;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: #c5c5c5;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 1.2rem;
+}
+
+.sub {
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+.c-foot {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  font-size: 0.6rem;
+}
