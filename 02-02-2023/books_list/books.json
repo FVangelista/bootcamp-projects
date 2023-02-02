@@ -1,0 +1,47 @@
+[
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "country": "United Kingdom",
+    "genre": "social sci-fi",
+    "publication-date": "8 june 1949",
+    "pages": 328,
+    "price": 14.99
+  },
+  {
+    "title": "But How Do It Know?",
+    "author": "John Clark Scott",
+    "country": "United States",
+    "genre": "science",
+    "publication-date": "4 july 2009",
+    "pages": 222,
+    "price": 19.99
+  },
+  {
+    "title": "The alchemist",
+    "author": "Paulo Coelho",
+    "country": "Brazil",
+    "genre": "fantasy",
+    "publication-date": "1988",
+    "pages": 208,
+    "price": 14.99
+  },
+  {
+    "title": "Operating System Concepts",
+    "author": "Abraham Silberschatz",
+    "country": "United States",
+    "genre": "science",
+    "publication-date": "29 july 2008",
+    "pages": 992,
+    "price": 35.49
+  },
+  {
+    "title": "The Lion, the witch and the Wardrobe",
+    "author": "C.S Lewis",
+    "country": "United Kingdom",
+    "genre": "high fantasy",
+    "publication-date": "1950",
+    "pages": 208,
+    "price": 9.99
+  }
+]

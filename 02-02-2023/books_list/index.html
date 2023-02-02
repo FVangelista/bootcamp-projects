@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library API</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: lightslategray;
+        color: #3c3c3c;
+      }
+      .info-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        border: 1px solid #3c3c3c;
+        border-radius: 4px;
+        width: 600px;
+        height: 400px;
+      }
+      h3 {
+        width: 500px;
+        text-align: center;
+        letter-spacing: 1.5px;
+      }
+      ul {
+        list-style-type: none;
+        line-height: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        width: 100%;
+      }
+      .links {
+        text-transform: uppercase;
+        color: lightseagreen;
+        text-decoration: none;
+        letter-spacing: 1.5px;
+        transition: all 0.4s ease-in-out;
+      }
+      .links:hover {
+        color: #c5c5c5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="info-wrapper">
+      <h1>This is a simple library API</h1>
+      <h3>Enjoy our few titles</h3>
+      <ul>
+        <li>
+          <a href="/about" class="links">About Us</a>
+        </li>
+        <li>
+          <a href="api/books" class="links">Our API</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
