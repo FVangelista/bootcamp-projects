@@ -1,0 +1,27 @@
+[
+  {
+    "country": "japan",
+    "capital": "tokyo",
+    "population": 126.572604,
+    "religion": ["shinto", "buddhism", "christianity"],
+    "language": "japanese",
+    "goverment": "unitary parliamentary constitutional monarchy",
+    "currency": "yen"
+  },
+  {
+    "country": "argentina",
+    "capital": "buenos aires",
+    "population": 42.6695,
+    "language": "spanish",
+    "goverment": "federal presidential constitutional republic",
+    "currency": "peso"
+  },
+  {
+    "country": "Laos",
+    "capital": "Vientiane",
+    "population": 6.8,
+    "language": "Lao",
+    "goverment": "Unitary Marxist-Leninist communist and single-party state",
+    "currency": "lak"
+  }
+]
