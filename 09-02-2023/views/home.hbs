@@ -1,0 +1,22 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='css/style.css' />
+    <title>HBS Home - {{title}} </title>
+  </head>
+  <body>
+    {{!-- Header --}}
+    {{> header}}
+    <h2>{{title}}</h2>
+    <h3>{{subTitle}}</h3>
+    <ul>
+      <li><strong>pets:</strong> {{myPreferences.pet}}</li>
+      <li><strong>color:</strong>  {{myPreferences.color}}</li>
+      <li><strong>season:</strong>  {{myPreferences.season}}</li>
+    </ul>
+    {{!-- footer --}}
+    {{> footer}}
+  </body>
+</html>
