@@ -9,6 +9,7 @@ body {
   color: #dfca28;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: 1.2px;
 }
 
 .main {
@@ -55,4 +56,39 @@ a {
 
 .img-one {
   width: 300px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 45%;
+}
+
+td,
+th {
+  border: 1px solid #c5c5c55c;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #c5c5c55c;
+}
+
+input {
+  padding: 5px;
+  background: transparent;
+  outline: none;
+  border: 0.5px solid #dfca28;
+  border-radius: 3px;
+}
+
+input::placeholder {
+  color: #dfca28;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+}
+
+input:focus {
+  background: transparent;
 }

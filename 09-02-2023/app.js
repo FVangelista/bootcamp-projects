@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  // res will work with rende(), when we work with hsb
   res.render('home', {
     name: 'filippo',
     title: 'HBS Tutorial - Home',
@@ -21,9 +20,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  // res will work with rende(), when we work with hsb
   res.render('about', {
     title: 'HBS Tutorial - About ',
+  });
+});
+
+app.get('/form', (req, res) => {
+  res.render('form', {
+    title: 'HBS - Form',
   });
 });
 
@@ -31,6 +35,23 @@ app.post('/login', (req, res) => {
   const { name } = req.body;
   if (name) {
     return res.status(201).send(`Welcome ${name} - you are logged in`);
+  } else {
+    return res.status(400).send(`There was an error trying to reach the data`);
+  }
+});
+
+app.post('/people', (req, res) => {
+  const { name, age, city } = req.body;
+  console.log(req.body);
+  if (name && age) {
+    return res.status(201).render('people', {
+      title: 'HBS - Post form',
+      sub: 'POST - Data',
+      person: { name, age, city },
+      table_1: 'name',
+      table_2: 'age',
+      table_3: 'city',
+    });
   } else {
     return res.status(400).send(`There was an error trying to reach the data`);
   }
