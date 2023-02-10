@@ -1,0 +1,70 @@
+<header class='fixed-top'>
+  <nav class='navbar navbar-expand-lg navbar-light bg-success px-5'>
+
+    <a class='navbar-brand' href='/'><img
+        src='images/logo_mini-tra.png'
+        id='img-logo'
+        class='img-fluid'
+      /></a>
+
+    <button
+      class='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#menuToggle'
+      aria-controls='navbarSupportedContent'
+      aria-expanded='false'
+      aria-label='Toggle navigation'
+    >
+      <!--<span class="navbar-toggler-icon"></span>-->
+      <span><i class='bi bi-caret-down-square-fill'></i></span>
+    </button>
+
+    <div class='collapse navbar-collapse' id='menuToggle'>
+
+      <ul class='navbar-nav me-auto mb-2 mb-lg-0 mx-auto'>
+        <li class='nav-item'>
+          <a class='nav-link' aria-current='page' href='/'><i
+              class='bi bi-house-fill'
+            ></i>Home</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link active' href='/about'>Chi sono</a>
+        </li>
+
+        <li class='nav-item dropdown'>
+          <a
+            class='nav-link dropdown-toggle'
+            href='#'
+            id='navbarDropdown'
+            role='button'
+            data-bs-toggle='dropdown'
+            aria-expanded='false'
+          >
+            Servizi
+          </a>
+          <!--Tag <ul> innestato in altro tag <ul> generale. Così si crea la struttura del sottomenu-->
+          <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+            <li><a class='dropdown-item' href='/web-design'>Web Design</a></li>
+            <li><a class='dropdown-item' href='/formazione'>Formazione</a></li>
+          </ul>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='/contatti'>Contatti</a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!--Aggiunta di un menu toggle-->
+    <div class='dropdown'>
+      <i class='bi bi-person-circle' data-bs-toggle='dropdown'></i>
+
+      <ul class='dropdown-menu'>
+        <li><a class='dropdown-item' href='#'>Profilo</a></li>
+        <li><a class='dropdown-item' href='#'>Logout</a></li>
+      </ul>
+    </div>
+
+  </nav>
+</header>

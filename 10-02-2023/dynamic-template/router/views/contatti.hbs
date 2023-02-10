@@ -1,0 +1,164 @@
+<html lang='it'>
+
+  {{> head}}
+
+  <body>
+    <div class='container-fluid'>
+      {{> header}}
+
+      <!--<div id="img-cover">
+            <img src="images/4.jpg" class="img-fluid" alt="">
+        </div>-->
+
+      <!-- Immagine in background con testo sovrascritto-->
+      <div
+        id='img-cover-contatti'
+        class='d-flex justify-content-center align-items-center'
+      >
+        <div id='text-cover'>
+          <h2>WEB DESIGN</h2>
+          <p class='lead text-center'>Sviluppo web</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='container'>
+
+      <!--BREADCRUMB-->
+      <div class='mt-3'>
+        <nav aria-label='breadcrumb'>
+          <ol class='breadcrumb'>
+            <li class='breadcrumb-item' aria-current='page'><a
+                href='index.html'
+              >Home</a></li>
+            <li class='breadcrumb-item active' aria-current='page'>Contatti</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!--OFF CANVAS-->
+      <!--Buttone per gestire l'apertura del menu laterale-->
+      <div class='d-flex justify-content-end'>
+
+        <button
+          class='btn btn-primary'
+          data-bs-toggle='offcanvas'
+          data-bs-target='#menu-off'
+        >Categorie</button>
+
+        <!--Menu che si apre al click-->
+        <div class='offcanvas offcanvas-start' id='menu-off'>
+
+          <div class='offcanvas-header'>
+            <h5 class='offcanvas-title'>naviga nelle categorie</h5>
+
+            <button
+              type='button'
+              class='btn-close text-reset'
+              data-bs-dismiss='offcanvas'
+              aria-label='chiudi'
+            ></button>
+          </div>
+
+          <div class='offcanvas-body'>
+            <ul class='list-group'>
+              <li class='list-group-item'>Corsi di programmazione</li>
+              <li class='list-group-item'>Corsi di web design</li>
+              <li class='list-group-item'>Corsi bootstrap</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!--TITOLO DEL CONTENUTO-->
+      <div class='d-flex justify-content-center'>
+        <h1 class='display-2 my-5'>Contattaci</h1>
+      </div>
+
+      <section class='mb-5'>
+
+        <form class='row g-3'>
+
+          <div class='col-md-6'>
+            <div class='form-floating mb-3'>
+              <input type='email' class='form-control' placeholder='mail' />
+              <label>Email</label>
+            </div>
+          </div>
+
+          <div class='col-md-6'>
+            <div class='form-floating mb-3'>
+              <input
+                type='password'
+                class='form-control'
+                placeholder='password'
+              />
+              <label>Password</label>
+            </div>
+          </div>
+
+          <div class='col-md-12'>
+            <div class='form-floating'>
+              <input type='text' class='form-control' placeholder='indirizzo' />
+              <label>Indirizzo</label>
+            </div>
+          </div>
+
+          <div class='col-md-4'>
+            <div class='form-floating'>
+              <input type='text' class='form-control' placeholder='indirizzo' />
+              <label>civico</label>
+            </div>
+          </div>
+
+          <div class='col-md-4'>
+            <div class='form-floating'>
+              <input type='text' class='form-control' placeholder='indirizzo' />
+              <label>cap</label>
+            </div>
+          </div>
+
+          <div class='col-md-4'>
+            <div class='form-floating'>
+              <input type='text' class='form-control' placeholder='indirizzo' />
+              <label>provincia</label>
+            </div>
+          </div>
+
+          <div class='col-md-6 mb-3'>
+            <label class='form-label'>Corso</label>
+            <select name='' id='' class='form-select'>
+              <option selected>Scegli...</option>
+              <option>PHP</option>
+              <option>Laravel</option>
+              <option>SQL</option>
+            </select>
+          </div>
+
+          <div class='col-md-12'>
+            <div class='form-check'>
+              <input class='form-check-input' type='checkbox' />
+              <label class='form-check-label'>Accettazione privacy</label>
+            </div>
+          </div>
+
+          <div class='col-md-12'>
+            <button type='submit' class='btn btn-primary ms-over'>Invia</button>
+          </div>
+        </form>
+
+      </section>
+
+    </div>
+    <!--Chiusura div container-->
+
+    {{> footer}}
+
+    <!--SCRIPT JAVASCRIPT-->
+    {{> script}}
+
+  </body>
+
+</html>

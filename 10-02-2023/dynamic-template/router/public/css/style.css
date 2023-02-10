@@ -1,0 +1,263 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a,
+h1,
+h2,
+h3 {
+    font-family: 'Nunito', sans-serif;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+header {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bi-person-circle {
+    font-size: 1.4em;
+    color: #c95e16;
+    margin-right: 2em;
+}
+
+#img-cover {
+    margin-top: 3.5em;
+}
+
+#img-logo {
+    width: 50%;
+    padding: 0;
+}
+
+a.navbar-brand {
+    width: 10%;
+    padding: 0;
+}
+
+.bi-house-fill {
+    font-size: 1em;
+    padding-right: 5px;
+    /*color: #ddd;*/
+    color: rgb(201, 22, 195);
+    /* qui possiamo utilizzare la forma sintetica: #fff */
+}
+
+.bi-envelope,
+.bi-telephone {
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: #c95e16;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+
+/* APPLICO LA PSEUDOCLASSE HOVER PER EFFETTI DIVERSI QUANDO IL MOUSE SI SOVRAPPONE :hover*/
+
+.ms-over:hover {
+    background-color: #c95e16;
+    border: none;
+    font-size: 1.8em;
+    color: #000;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    font-family: "bootstrap-icons";
+    content: "\F309";
+}
+
+.offcanvas {
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+#img-cover-contatti {
+    height: 400px;
+    background: url('../images/4.jpg');
+}
+
+#text-cover {
+    color: #fff;
+    text-shadow: 2px 2px 6px #000;
+    padding: 10px;
+    /*border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.52);*/
+}
+
+#bc-box {
+    margin-left: 40px;
+}
+
+.carousel-caption {
+    font-size: 32px;
+    padding: 10px;
+    color: #6a1a21;
+    background-color: rgba(255, 255, 255, 0.50);
+}
+
+.carousel-caption h3 {
+    color: #302e2e;
+    text-transform: uppercase;
+}
+
+.link-corsi {
+    color: #fff;
+}
+
+.link-corsi:hover {
+    color: #ccc;
+}
+
+.btn-odd {
+    background-color: #f0b256;
+}
+
+.btn-even {
+    background-color: #5247e7;
+}
+
+#web-design {
+    padding: 3.2em;
+    background: linear-gradient(160deg, rgba(238, 238, 238, 1) 50%, rgba(15, 175, 78, 0.47) 50%);
+}
+
+#programmazione,
+#full-stack,
+#on-demand {
+    padding: 3.2em;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    display: none;
+}
+
+
+/**********************************
+*FLIP CARD
+***********************************/
+
+.course-grid {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.09), 0px 4px 15px rgba(0, 0, 0, 0.015);
+}
+
+.course-grid:hover {
+    box-shadow: 0 12px 5px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.image-fluid {
+    width: 100%;
+    transition: transform 1s;
+}
+
+.image-container:hover .image-fluid {
+    transform: rotateY(180deg);
+}
+
+.course-grid h1 {
+    margin-top: 15px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.course-grid h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn.buy {
+    border-radius: 0;
+    border: 1px solid #4ecadc;
+    color: #4ecadc;
+    margin-top: 20px;
+    width: 100%;
+    transition: 1s ease;
+}
+
+.btn.buy:hover {
+    color: #fff;
+    background-color: #4ecadc;
+    border-radius: 20px;
+}
+
+
+/**********************************
+*PARALLAX
+***********************************/
+
+.parallax-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(../images/bg.jpeg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-content {
+    padding: 100px 0 150px 0;
+}
+
+.content {
+    margin-top: -120px;
+    background-color: #fff;
+    box-shadow: 0 0 20px -6px rgba(0, 0, 0, 0.2);
+}
+
+.content .left {
+    padding: 20px;
+}
+
+.content .right {
+    padding: 0;
+}
+
+.content .bottom {
+    background-color: #8bbce6;
+    padding: 20px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.primary-color {
+    color: #5247e7;
+}
+
+
+/**********************************
+*MEDIA QUERIES
+***********************************/
+
+@media(min-width: 780px) {
+    .dropdown-menu.show {
+        margin-left: -3em;
+    }
+}
+
+@media(max-width: 576px) {
+    .extra-small {
+        margin-left: 2.8em;
+    }
+}
+
+
+/*
+*USO CLASSE AFTER E BEFORE: ::before  / ::after sull'elemento selezionato. Nella proprietà content
+* aggiungo l'elemento da inserire
+#cl-after::after {
+    font-family: "bootstrap-icons";
+    content: "\F65B";
+}
+#cl-after::after { 
+    content: "elemento aggiunto";
+}
+
+*/

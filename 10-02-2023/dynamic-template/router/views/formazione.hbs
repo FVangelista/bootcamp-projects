@@ -1,0 +1,398 @@
+<html lang='it'>
+
+  {{> head}}
+
+  <body>
+    <div class='container-fluid'>
+      {{> header}}
+
+      <!--<div id="img-cover">
+            <img src="images/4.jpg" class="img-fluid" alt="">
+        </div>-->
+
+      <!-- Immagine in background con testo sovrascritto-->
+      <div
+        id='img-cover-contatti'
+        class='d-flex justify-content-center align-items-center'
+      >
+        <div id='text-cover'>
+          <h2>FORMAZIONE</h2>
+          <p class='lead text-center'>Corsi</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='container'>
+
+      <!--BREADCRUMB-->
+      <div class='mt-3'>
+        <nav aria-label='breadcrumb' id='bc-box'>
+          <ol class='breadcrumb'>
+            <li class='breadcrumb-item' aria-current='page'><a
+                href='index.html'
+              >Home</a></li>
+            <li
+              class='breadcrumb-item active'
+              aria-current='page'
+            >Servizi/Formazione</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!--TITOLO DEL CONTENUTO-->
+      <div class='d-flex justify-content-center'>
+        <h1 class='display-2 my-5'>Formazione</h1>
+      </div>
+
+      <!-- GRUPPO DI BOTTONI PER MENU CON ANCORE -->
+
+      <div class='row'>
+        <div class='col-8 mx-auto'>
+
+          <!-- VISIBILE SOLO DALLE TAGLIE MEDIE IN POI -->
+
+          <div class='btn-group btn-group-sm d-md-block d-sm-none d-none'>
+            <button type='button' class='btn btn-odd'><a
+                href='#programmazione'
+                class='nav-link link-corsi'
+              >Programmazione</a></button>
+            <button type='button' class='btn btn-even'><a
+                href='#web-design'
+                class='nav-link link-corsi'
+              >Web Design</a></button>
+            <button type='button' class='btn btn-odd'><a
+                href='#full-stack'
+                class='nav-link link-corsi'
+              >Fullstack</a></button>
+            <button type='button' class='btn btn-even'><a
+                href='#on-demand'
+                class='nav-link link-corsi'
+              >On demand</a></button>
+          </div>
+
+          <!-- VISIBILE SOLO DALLE TAGLIE Xsmall -->
+          <div class='btn-group-vertical d-md-none d-sm-block d-block'>
+            <button type='button' class='btn btn-odd'><a
+                href='#programmazione'
+                class='nav-link link-corsi'
+              >Programmazione</a></button>
+            <button type='button' class='btn btn-even'><a
+                href='#web-design'
+                class='nav-link link-corsi'
+              >Web Design</a></button>
+            <button type='button' class='btn btn-odd'><a
+                href='#full-stack'
+                class='nav-link link-corsi'
+              >Fullstack</a></button>
+            <button type='button' class='btn btn-even'><a
+                href='#on-demand'
+                class='nav-link link-corsi'
+              >On demand</a></button>
+          </div>
+          <p>Lorem ipsum dolor sit amet tellus imperdiet porttitor ultricies
+            eiusmod magna feugiat. Bibendum mollis orci tellus pellentesque
+            condimentum fermentum eros hac condimentum purus blandit euismod
+            quisque posuere. Ut ultricies auctor elit cras tellus donec
+            pellentesque sed magna justo est morbi velit. Quis facilisi tortor
+            ornare congue fames aliquet id eiusmod a orci.</p>
+
+          <!-- BOTTONE PER ATTIVARE MODAL-->
+          <div>
+            <p class='lead'>Se vuoi maggiori info clicca qui</p>
+            <button
+              type='button'
+              class='btn btn-success'
+              data-bs-toggle='modal'
+              data-bs-target='#myModal'
+            >INFO</button>
+            <!-- IMPLEMENTAZIONE MODAL-->
+
+            <div class='modal fade' id='myModal'>
+
+              <div class='modal-dialog modal-fullscreen'>
+                <div class='modal-content'>
+
+                  <div class='modal-header'>
+                    <h4 class='modal-title'>Titolo modal</h4>
+                    <!--<input type="button" value="Bottone">-->
+                    <button class='btn-close' data-bs-dismiss='modal'></button>
+                  </div>
+
+                  <div class='modal-body'>
+                    <p>Lorem ipsum dolor sit amet dolore ultricies a urna nisl
+                      hac id donec interdum. Elit hendrerit labore quisque elit
+                      sed ultrices hendrerit. Aliquet mauris non lobortis eros
+                      est malesuada ultrices do. Non nunc tempor condimentum
+                      integer neque congue rhoncus at integer. Faucibus platea
+                      ornare elementum dictumst dapibus libero sapien aenean
+                      molestie platea pretium. Ornare volutpat mauris leo
+                      molestie euismod id fermentum pellentesque sagittis
+                      adipiscing. Curabitur justo risus cursus turpis odio
+                      semper pellentesque netus adipiscing congue hac convallis
+                      morbi tincidunt. Facilisi magna scelerisque neque
+                      malesuada tempor do est sodales neque. Aliquam vel
+                      interdum elementum semper blandit est fermentum dapibus.
+                      Mollis elit faucibus leo tortor dapibus maecenas euismod
+                      diam.</p>
+                  </div>
+
+                  <div class='modal-footer'>
+                    <button
+                      type='button'
+                      class='btn btn-danger'
+                      data-bs-dismiss='modal'
+                    >Chiudi</button>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <section id='programmazione'>
+        <div class='d-flex justify-content-center'>
+          <h2 class='my-5'>Corsi di programmazione</h2>
+        </div>
+        <!-- ACCORDION -->
+        <div class='accordion w-75 mx-auto' id='accordionCorsi'>
+
+          <div class='accordion-item'>
+            <h3 class='accordion-header'>
+              <button
+                class='accordion-button bg-info'
+                type='button'
+                data-bs-toggle='collapse'
+                data-bs-target='#item1'
+              >Corsi base</button>
+            </h3>
+
+            <div
+              class='accordion-collapse'
+              id='item1'
+              data-bs-parent='#accordionCorsi'
+            >
+              <div class='accordion-body'>
+                <p>Lorem ipsum dolor sit amet netus libero volutpat tristique
+                  aliquam. Euismod dictumst maecenas magna ornare iaculis
+                  habitasse a. Volutpat pharetra duis volutpat curabitur
+                  suspendisse risus fusce eget nisi vestibulum habitasse tempus
+                  duis vulputate. Vel maecenas lacinia et suspendisse donec
+                  ultrices turpis bibendum mollis volutpat.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class='accordion-item'>
+            <h3 class='accordion-header'>
+              <button
+                class='accordion-button bg-info'
+                type='button'
+                data-bs-toggle='collapse'
+                data-bs-target='#item2'
+              >Corsi Intermedi</button>
+            </h3>
+
+            <div
+              class='accordion-collapse collapse'
+              id='item2'
+              data-bs-parent='#accordionCorsi'
+            >
+              <div class='accordion-body'>
+                <p>Lorem ipsum dolor sit amet netus libero volutpat tristique
+                  aliquam. Euismod dictumst maecenas magna ornare iaculis
+                  habitasse a. Volutpat pharetra duis volutpat curabitur
+                  suspendisse risus fusce eget nisi vestibulum habitasse tempus
+                  duis vulputate. Vel maecenas lacinia et suspendisse donec
+                  ultrices turpis bibendum mollis volutpat.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class='accordion-item'>
+            <h3 class='accordion-header'>
+              <button
+                class='accordion-button bg-info'
+                type='button'
+                data-bs-toggle='collapse'
+                data-bs-target='#item3'
+              >Corsi base</button>
+            </h3>
+
+            <div
+              class='accordion-collapse collapse'
+              id='item3'
+              data-bs-parent='#accordionCorsi'
+            >
+              <div class='accordion-body'>
+                <p>Lorem ipsum dolor sit amet netus libero volutpat tristique
+                  aliquam. Euismod dictumst maecenas magna ornare iaculis
+                  habitasse a. Volutpat pharetra duis volutpat curabitur
+                  suspendisse risus fusce eget nisi vestibulum habitasse tempus
+                  duis vulputate. Vel maecenas lacinia et suspendisse donec
+                  ultrices turpis bibendum mollis volutpat.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section id='web-design' class='my-5'>
+        <div class='d-flex justify-content-center'>
+          <h2 class='my-5'>Corsi di Web Design</h2>
+        </div>
+
+        <!-- CARD CON SCRITTA OVERLAY-->
+
+        <div class='row'>
+
+          <div class='col-md-4 col-sm-12 my-3'>
+            <div class='card'>
+              <img class='card-img-top' src='images/card11.jpg' />
+              <div class='card-img-overlay'>
+                <h4>Titolo Card</h4>
+
+                <p>Lorem ipsum dolor sit amet turpis</p>
+                <a href='#' class='btn btn-primary'>Dettagli</a>
+              </div>
+            </div>
+          </div>
+
+          <div class='col-md-4 col-sm-12 my-3'>
+            <div class='card'>
+              <img class='card-img-top' src='images/card11.jpg' />
+              <div class='card-img-overlay'>
+                <h4>Titolo Card</h4>
+                <p>Lorem ipsum dolor sit amet turpis</p>
+                <a href='#' class='btn btn-primary'>Dettagli</a>
+              </div>
+            </div>
+          </div>
+
+          <div class='col-md-4 col-sm-12 my-3'>
+            <div class='card'>
+              <img class='card-img-top' src='images/card11.jpg' />
+              <div class='card-img-overlay'>
+                <h4>Titolo Card</h4>
+                <p>Lorem ipsum dolor sit amet turpis</p>
+                <a href='#' class='btn btn-primary'>Dettagli</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section id='full-stack'>
+        <div class='d-flex justify-content-center'>
+          <h2 class='my-5'>Corsi per full stack</h2>
+        </div>
+        <div class='row'>
+          <div class='col-md-6'>
+
+            <div class='ratio ratio-16x9'>
+              <iframe
+                src='https://www.youtube.com/embed/kfiKn5c9l84'
+                title='YouTube video player'
+                allow='accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- Componente Tooltip-->
+            <div class='mt-5'>
+              <button
+                type='button'
+                class='btn btn-primary'
+                data-bs-toggle='demo'
+                data-bs-placement='bottom'
+                title='Tooltip bottom'
+              >Tooltip1</button>
+
+              <button
+                type='button'
+                class='btn btn-warning'
+                data-bs-toggle='demo'
+                data-bs-placement='bottom'
+                title='Tooltip bottom'
+              >Tooltip2</button>
+            </div>
+          </div>
+
+          <div class='col-md-6 card'>
+            <img src='images/card11.jpg' class='img-fluid' />
+            <div class='card-img-overlay'>
+              <button class='btn btn-success'>Testo</button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+      <section id='on-demand'>
+        <div class='d-flex justify-content-center'>
+          <h2 class='my-5'>Corsi on demand</h2>
+        </div>
+
+        <!-- FLIP CARD -->
+        <div class='row mb-5'>
+          <div class='col-md-4 course-grid'>
+            <div class='image-container'>
+              <a href='#'>
+                <img src='images/card2.jpg' class='image-fluid' />
+              </a>
+            </div>
+            <h1>Corso 1</h1>
+            <h2>24 ore</h2>
+            <a href='#' class='btn buy'>ISCRIVITI</a>
+          </div>
+
+          <div class='col-md-4 course-grid'>
+            <div class='image-container'>
+              <a href='#'>
+                <img src='images/card2.jpg' class='image-fluid' />
+              </a>
+            </div>
+            <h1>Corso 1</h1>
+            <h2>24 ore</h2>
+            <a href='#' class='btn buy'>ISCRIVITI</a>
+          </div>
+
+          <div class='col-md-4 course-grid'>
+            <div class='image-container'>
+              <a href='#'>
+                <img src='images/card2.jpg' class='image-fluid' />
+              </a>
+            </div>
+            <h1>Corso 1</h1>
+            <h2>24 ore</h2>
+            <a href='#' class='btn buy'>ISCRIVITI</a>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+    <!--Chiusura div container-->
+
+    {{> footer}}
+
+    <!-- Bottone back to top-->
+
+    {{> toTop}}
+
+    <!--SCRIPT JAVASCRIPT-->
+    {{> script}}
+
+    <!--implemento il tooltip-->
+    {{> implement}}
+
+  </body>
+
+</html>

@@ -1,0 +1,111 @@
+<html lang='it'>
+
+  {{> head}}
+  
+  <body>
+    <div class='container-fluid'>
+      {{> header}}
+
+      <!--<div id="img-cover">
+            <img src="images/4.jpg" class="img-fluid" alt="">
+        </div>-->
+
+      <!-- Immagine in background con testo sovrascritto-->
+      <div
+        id='img-cover-contatti'
+        class='d-flex justify-content-center align-items-center'
+      >
+        <div id='text-cover'>
+          <h2>CHI SONO</h2>
+          <p class='lead text-center'>Corsi</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='container'>
+
+      <!--BREADCRUMB-->
+      <div class='mt-3'>
+        <nav aria-label='breadcrumb' id='bc-box'>
+          <ol class='breadcrumb'>
+            <li class='breadcrumb-item' aria-current='page'><a
+                href='index.html'
+              >Home</a></li>
+            <li class='breadcrumb-item active' aria-current='page'>Chi sono</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!--TITOLO DEL CONTENUTO-->
+      <div class='d-flex justify-content-center'>
+        <h1 class='display-2 my-5'>About me</h1>
+      </div>
+
+      <!-- PARALLAX CON BS-->
+
+      <div class='parallax-header'>
+        <div class='container'>
+          <div class='header-content'>
+            <a href='#'>
+              <img
+                src='images/avatar.svg'
+                width='180'
+                class='d-block mx-auto'
+              />
+            </a>
+            <h3 class='text-center text-light'>Free lance</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class='container'>
+        <div class='row content w-75 mx-auto'>
+          <div class='col-md-6 left'>
+            <h1 class='primary-color'>Parallax in BS</h1>
+            <p class='text-justify'>Lorem ipsum dolor sit amet odio laoreet
+              nullam consequat in proin porttitor ultrices. Mi hendrerit
+              elementum et aliquam odio congue at senectus. Volutpat vestibulum
+              velit orci malesuada sapien pellentesque posuere porta facilisi
+              faucibus id dictumst aenean bibendum. Eros feugiat ac ornare
+              pretium dolore sagittis tristique incididunt nisl do incididunt
+              nisl. Incididunt mattis facilisis pharetra lobortis volutpat
+              fermentum posuere fringilla ut consectetur dapibus pharetra magna
+              aliquam.</p>
+
+          </div>
+
+          <div class='col-md-6 right'>
+            <img src='images/card1.jpg' class='w-100' />
+          </div>
+          <div class='col-12 bottom'>
+            <p class='text-justify'>Lorem ipsum dolor sit amet lacus ut morbi
+              integer sapien. Sollicitudin cursus mauris velit turpis aliquam
+              urna a velit. Morbi posuere vulputate non molestie mollis augue
+              mi. Turpis eu semper lectus semper eros rhoncus eget viverra et
+              tincidunt.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!--Chiusura div container-->
+
+    {{> footer}}
+
+    <!-- Bottone back to top-->
+
+    {{> toTop}}
+
+    <!--SCRIPT JAVASCRIPT-->
+    {{> script}}
+    
+    <!--implemento il tooltip-->
+    {{> implement}}
+
+  </body>
+
+</html>
