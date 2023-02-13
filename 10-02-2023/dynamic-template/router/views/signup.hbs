@@ -1,0 +1,73 @@
+<html lang='it'>
+
+  {{> head}}
+
+  <body>
+    <div class='container-fluid'>
+      {{> header}}
+
+      <div
+        id='img-cover-contatti'
+        class='d-flex justify-content-center align-items-center'
+      >
+        <div id='text-cover'>
+          <h2>Profile</h2>
+        </div>
+
+      </div>
+
+    </div>
+    <div class='container'>
+
+      <!--BREADCRUMB-->
+      <div class='mt-3'>
+        <nav aria-label='breadcrumb'>
+          <ol class='breadcrumb'>
+            <li class='breadcrumb-item' aria-current='page'><a
+                href='/'
+              >Home</a></li>
+            <li class='breadcrumb-item active' aria-current='page'>login</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!--TITOLO DEL CONTENUTO-->
+      <div class='d-flex justify-content-center'>
+        <h1 class='display-2 my-5'>Login</h1>
+      </div>
+
+      <section class='mb-5'>
+      {{#if message}}
+        <h3>{{message}}</h3>
+      {{/if}}
+
+        <form action="/signup" class='row g-3 ' method="POST">
+          <div class='col-auto'>           
+              <input type='text' name="username" class='form-control' placeholder='username' />               
+          </div>
+
+          <div class='col-auto'>         
+              <input
+                type='password'
+                name="password"
+                class='form-control'
+                placeholder='password'
+              />
+          </div>
+
+          <div class='col-auto'>
+            <button type='submit' class='btn btn-primary mb-3'>Enter</button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+
+
+    {{> footer}}
+
+    <!--SCRIPT JAVASCRIPT-->
+    {{> script}}
+  </body>
+
+</html>
