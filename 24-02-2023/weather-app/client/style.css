@@ -32,6 +32,11 @@ body {
 .flag-top,
 .upper-text {
   margin: 0 25px;
+  user-select: none;
+}
+
+.flag-top {
+  width: 32px;
 }
 
 .logo {
@@ -44,6 +49,7 @@ body {
   padding: 100px 0px;
   letter-spacing: 1.5px;
   /* border: 1px solid red; */
+  user-select: none;
 }
 
 .logo-img {
@@ -153,6 +159,7 @@ body {
   align-items: center;
   gap: 25px;
   padding: 50px 50px 150px 50px;
+  max-width: 1250px;
 }
 
 .card {
@@ -245,12 +252,13 @@ body {
   flex-wrap: wrap;
   padding: 25px 0px;
   width: 100%;
+  user-select: none;
 }
 
 .footer-logo,
 .flag {
   margin: 0 auto;
-  width: 40px;
+  width: 32px;
 }
 
 .top-btn {

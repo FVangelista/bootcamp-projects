@@ -37,6 +37,7 @@ window.initMap = initMap;
 const select = gEl('.city-selection');
 const search = gEl('.search-input');
 const upperText = gEl('.upper-text');
+const upperNav = gEl('.upperNav');
 const toTop = gEl('.top-btn');
 
 toTop.addEventListener('click', () => {
@@ -108,9 +109,22 @@ Promise.all(objArray).then((data) => {
   });
 });
 
+// Piedmont data
+
 GET('piemonte').then((data) => {
-  upperText.textContent = `Piedmont now - ${data.weather[0].description}`;
+  const topImg = document.createElement('img');
+  topImg.classList.add('flag-top');
+  topImg.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+
+  upperText.textContent = `Italy, Piedmont ${Math.round(data.main.temp)}°c - ${
+    data.weather[0].description
+  }`;
+
+  upperNav.appendChild(topImg);
+  console.log(data);
 });
+
+// Delete function
 
 const deleteBefore = () => {
   const usersEl = document.querySelectorAll('.card');

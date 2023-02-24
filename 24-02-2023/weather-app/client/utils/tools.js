@@ -172,6 +172,12 @@ function notFound() {
   mess.classList.add('text-1');
   mess.classList.add('error');
 
+  if (time > '06' && time < '18') {
+    mess.style.color = '#619B8A';
+  } else {
+    mess.style.color = '#006466';
+  }
+
   mess.textContent =
     'Sorry, the city you are looking for is not located in Piedmont or it does not exist.';
 
@@ -182,6 +188,12 @@ function errorMessage() {
   const mess = cEl('div');
   mess.classList.add('text-1');
   mess.classList.add('error');
+
+  if (time > '06' && time < '18') {
+    mess.style.color = '#619B8A';
+  } else {
+    mess.style.color = '#006466';
+  }
 
   mess.textContent =
     'You must insert at least three characters for a proper research';
