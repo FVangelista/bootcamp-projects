@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fccb4625;
+}
+
+.upperNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.upper-text {
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.flag-top,
+.upper-text {
+  margin: 0 25px;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 0 auto;
+  padding: 100px 0px;
+  letter-spacing: 1.5px;
+  /* border: 1px solid red; */
+}
+
+.logo-img {
+  position: absolute;
+  left: -80%;
+  top: 25%;
+  width: 150px;
+}
+
+.logo-text {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-inner {
+  position: absolute;
+  left: 30px;
+  bottom: -10px;
+  width: 150px;
+  font-size: 0.75rem;
+  font-weight: bolder;
+  color: #fe7f2d;
+}
+
+/* Search section */
+
+.search-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 25px 0px;
+  margin: 0 auto;
+  height: 150px;
+  transition: all 0.45s ease-in-out;
+  z-index: 10;
+}
+
+.city-selection,
+.search-input {
+  margin: 0 auto;
+  width: 150px;
+  background: none;
+  border-radius: 8px;
+  border: 1px solid #006466;
+  color: #006466;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search-input::placeholder {
+  color: #006466;
+}
+
+.custom::placeholder {
+  color: #619b8a;
+}
+
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
+.city-selection:focus,
+.search-input:focus {
+  outline: none;
+}
+
+/* Hero section */
+
+.hero {
+  width: 100%;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 25px;
+  margin: 0 auto;
+  width: 100%;
+  inline-size: 600px;
+}
+
+.text-1 {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 0px;
+  letter-spacing: 1.25px;
+  font-weight: bolder;
+}
+
+@media (max-width: 520px) {
+  .hero-info {
+    inline-size: 90%;
+  }
+}
+
+/* Cards section */
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 50px 50px 150px 50px;
+}
+
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 450px;
+  width: 250px;
+  /* background-image: linear-gradient(
+      rgba(125, 125, 125, 0.1),
+      rgba(125, 125, 125, 0.1)
+    ),
+    url('./imgs/3.svg'); */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(125, 125, 125, 0.5);
+}
+
+@media (max-width: 320px) {
+  .cards-wrapper {
+    padding: 25px 0px;
+  }
+  .card {
+    height: 400px;
+    width: 200px;
+  }
+}
+
+.now {
+  color: #fff;
+  font-size: 3.5rem;
+  margin: 0 auto;
+}
+
+.maxMin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  margin: 0 auto;
+  border-bottom: 1px solid #fff;
+}
+
+.text {
+  margin: 0 auto;
+  padding: 10px 0px;
+  color: #fff;
+  letter-spacing: 1.25px;
+  font-weight: bolder;
+}
+
+.addInfo {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  font-weight: lighter;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.province {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 1.25px;
+  line-height: 25px;
+  width: 75%;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+
+/* footer */
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 25px 0px;
+  width: 100%;
+}
+
+.footer-logo,
+.flag {
+  margin: 0 auto;
+  width: 40px;
+}
+
+.top-btn {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  margin: 0 auto;
+}
+
+.copy-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  color: #fff;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  margin: 0 auto;
+}
+
+/* Map */
+
+#map {
+  height: 450px;
+  width: 100%;
+}
+
+a[href^="http://maps.google.com/maps"]
+{
+  display: none !important;
+}
+a[href^="https://maps.google.com/maps"]
+{
+  display: none !important;
+}
+
+.gmnoprint a,
+.gmnoprint span,
+.gm-style-cc {
+  display: none;
+}
+/* .gmnoprint div {
+  background: none !important;
+} */
