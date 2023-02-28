@@ -1,0 +1,40 @@
+.Footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 25px;
+  color: darkred;
+}
+
+.content-wrapper .img {
+  border-radius: 8px;
+}
+
+.content-wrapper .btn {
+  padding: 5px;
+  width: 125px;
+  color: darkgreen;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  background-color: rgba(139, 0, 0, 0.452);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.content-wrapper .btn:hover {
+  color: #fff;
+  background-color: darkred;
+}
