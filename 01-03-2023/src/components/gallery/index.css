@@ -1,0 +1,20 @@
+.Gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: auto 100px;
+  padding: 75px 0px;
+}
+
+.imgs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.gl-img {
+  width: 350px;
+  filter: saturate(1.2) contrast(1.1) brightness(0.9);
+  border-radius: 12px;
+}

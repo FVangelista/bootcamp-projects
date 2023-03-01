@@ -1,0 +1,33 @@
+.Hero {
+  position: relative;
+  padding: 15px;
+  width: 100%;
+}
+
+.Hero img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 12px 50%;
+  filter: brightness(0.75) contrast(1.5) saturate(1.5);
+}
+
+.Hero h2 {
+  position: absolute;
+  text-transform: capitalize;
+  letter-spacing: 1.1px;
+  top: calc(50% - 52px);
+  left: 25%;
+  color: #f5f5f5;
+  font-size: 3rem;
+}
+
+h2::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  right: -25px;
+  background-color: rgb(25, 150, 120);
+  height: 2.5px;
+  width: 75%;
+}
