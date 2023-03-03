@@ -1,0 +1,55 @@
+.Main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(100, 125, 120);
+  background-color: rgba(100, 125, 120, 0.5);
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode {
+  background-color: #252525;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: auto 100px;
+  padding: 75px 0px;
+  width: 100%;
+  max-width: 1700px;
+}
+
+.toggle-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.title {
+  position: relative;
+  text-transform: capitalize;
+  align-self: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.75px;
+}
+
+.title h3::after {
+  content: ' ';
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  background-color: #f5f5f5;
+  height: 2.5px;
+  width: 100%;
+}

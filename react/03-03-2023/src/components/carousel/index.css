@@ -1,0 +1,48 @@
+.Carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1700px;
+  margin: auto 100px;
+  padding: 75px 0px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid #f5f5f5;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 50px auto;
+}
+
+.c-img {
+  width: 400px;
+  border-radius: 12px;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 15%;
+  width: 250px;
+}
+
+.btns button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(100, 125, 120);
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  cursor: pointer;
+}
