@@ -1,0 +1,21 @@
+.SideTrends {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid lightslategray;
+  width: 100%;
+  height: 10%;
+  padding: 25px;
+  background-color: #fff;
+}
+
+.SideTrends li {
+  list-style-type: none;
+}
+
+.SideTrends li img {
+  width: 35px;
+  filter: contrast(50%);
+}

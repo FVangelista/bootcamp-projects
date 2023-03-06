@@ -1,0 +1,40 @@
+.single-content {
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  height: 350px;
+}
+
+.user-img {
+  align-self: flex-start;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #05a9f4;
+  padding: 2px;
+}
+
+.text-info {
+  width: 100%;
+  min-width: 250px;
+}
+
+.text-info span:nth-child(1) {
+  color: lightgray;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.icons img {
+  width: 25px;
+  filter: contrast(30%);
+}
