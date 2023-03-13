@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: #fff;
+}
+
+.Controllers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}
+
+.Controllers input {
+  padding: 5px;
+  background-color: #5a5a5a7a;
+  color: #fafafa;
+  border: NONE;
+}
+
+.Controllers input::placeholder {
+  letter-spacing: 0.1rem;
+  color: #fafafa;
+}
+
+.Controllers input:focus {
+  outline: none;
+}
+
+.Controllers button {
+  padding: 5px;
+  border: none;
+  color: #5a5a5a;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  padding: 5px;
+}
+
+ul li button {
+  padding: 5px;
+  border-radius: 50%;
+  color: #fafafa;
+  border: 0.75px solid #fafafa;
+  background-color: transparent;
+  cursor: pointer;
+}
