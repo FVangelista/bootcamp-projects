@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
+import { todoList } from './mock/todoList';
+
 // Root
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
-  const [items, setItems] = useState([]);
+  const [list, setList] = useState(todoList);
 
   // Utils
 
@@ -14,31 +16,38 @@ function App() {
     }
 
     const item = {
-      id: Math.round(Math.random() * 10000),
-      value: newTodo,
+      id: list.length + 1,
+      content: newTodo,
     };
 
-    setItems((oldList) => [...oldList, item]);
-    setNewTodo('');
+    setList((prev) => {
+      if (prev.find((item) => item.content === newTodo)) {
+        alert('The item has already been added');
+        return prev;
+      } else {
+        return [...prev, item];
+      }
+    });
 
-    console.log(items);
+    setNewTodo('');
+    console.log(list);
   }
 
   function deleteItem(id) {
-    const newArray = items.filter((item) => item.id !== id);
+    console.log(list);
+    const newArray = list.filter((item) => item.id !== id);
 
-    setItems(newArray);
+    setList(newArray);
   }
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
       <Controllers
         newItem={newTodo}
         setNewItem={setNewTodo}
         addItem={addItem}
       />
-      <List arrayItems={items} deleteItemFunc={deleteItem} />
+      <List arrayItems={list} deleteItemFunc={deleteItem} />
     </div>
   );
 }
@@ -48,8 +57,12 @@ function App() {
 function Controllers(props) {
   const { newItem, setNewItem, addItem } = props;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="Controllers">
+    <form onSubmit={handleSubmit} className="Controllers">
       <input
         type="text"
         value={newItem}
@@ -59,23 +72,36 @@ function Controllers(props) {
       <button className="btn-send" onClick={() => addItem()}>
         enter
       </button>
-    </div>
+    </form>
   );
 }
 
 function List(props) {
   const { arrayItems, deleteItemFunc } = props;
+
   return (
     <ul>
-      {arrayItems.map((item) => (
-        <li key={item.id}>
-          {item.value}
-          <button type="submit" onClick={() => deleteItemFunc(item.id)}>
-            X
-          </button>
-        </li>
-      ))}
+      {arrayItems
+        .sort((item1, item2) => (item1.id <= item2.id ? 1 : -1))
+        .map((item) => (
+          <ListContent
+            singleItem={item}
+            delItem={deleteItemFunc}
+            key={item.id}
+          />
+        ))}
     </ul>
+  );
+}
+
+function ListContent({ singleItem, delItem }) {
+  return (
+    <li>
+      <p>{singleItem.content}</p>
+      <button type="submit" onClick={() => delItem(singleItem.id)}>
+        ❌
+      </button>
+    </li>
   );
 }
 
