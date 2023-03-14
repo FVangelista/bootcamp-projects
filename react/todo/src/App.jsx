@@ -40,6 +40,36 @@ function App() {
     setList(newArray);
   }
 
+  function toggleComplete(id) {
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        const updatedItem = {
+          ...item,
+          isComplete: !item.isComplete,
+        };
+        return updatedItem;
+      }
+      return item;
+    });
+
+    setList(newList);
+  }
+
+  function updateItem(id) {
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        const updatedItem = {
+          ...item,
+          content: newTodo,
+        };
+        return updatedItem;
+      }
+      return item;
+    });
+
+    setList(newList);
+  }
+
   return (
     <div className="App">
       <Controllers
@@ -47,7 +77,12 @@ function App() {
         setNewItem={setNewTodo}
         addItem={addItem}
       />
-      <List arrayItems={list} deleteItemFunc={deleteItem} />
+      <List
+        arrayItems={list}
+        deleteItemFunc={deleteItem}
+        toggleCompleteFunc={toggleComplete}
+        updateItemFunc={updateItem}
+      />
     </div>
   );
 }
@@ -55,7 +90,7 @@ function App() {
 // Components
 
 function Controllers(props) {
-  const { newItem, setNewItem, addItem } = props;
+  const { newItem, setNewItem, addItem, updateTodo, updateItemFunc } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +112,8 @@ function Controllers(props) {
 }
 
 function List(props) {
-  const { arrayItems, deleteItemFunc } = props;
+  const { arrayItems, deleteItemFunc, toggleCompleteFunc, updateItemFunc } =
+    props;
 
   return (
     <ul>
@@ -87,6 +123,8 @@ function List(props) {
           <ListContent
             singleItem={item}
             delItem={deleteItemFunc}
+            toggleItem={toggleCompleteFunc}
+            upItem={updateItemFunc}
             key={item.id}
           />
         ))}
@@ -94,13 +132,23 @@ function List(props) {
   );
 }
 
-function ListContent({ singleItem, delItem }) {
+function ListContent({ singleItem, delItem, toggleItem, upItem }) {
   return (
     <li>
-      <p>{singleItem.content}</p>
-      <button type="submit" onClick={() => delItem(singleItem.id)}>
-        ❌
-      </button>
+      <p style={{ textDecoration: singleItem.isComplete && 'line-through' }}>
+        {singleItem.content}
+      </p>
+      <div className="btns">
+        <button type="submit" onClick={() => delItem(singleItem.id)}>
+          ❌
+        </button>
+        <button type="submit" onClick={() => upItem(singleItem.id)}>
+          ⬆️
+        </button>
+        <button type="submit" onClick={() => toggleItem(singleItem.id)}>
+          {singleItem.isComplete ? '✅' : '⭕'}
+        </button>
+      </div>
     </li>
   );
 }
