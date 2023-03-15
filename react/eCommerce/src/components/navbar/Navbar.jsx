@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import './index.css';
 
-const Navbar = () => {
-  const [inputValue, setInputValue] = useState('');
+const Navbar = (props) => {
+  const { inputValue, setInputValue } = props;
 
   const onHandleInput = (e) => setInputValue(() => e.target.value);
 

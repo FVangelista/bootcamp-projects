@@ -3,18 +3,35 @@ import MiniCard from '../miniCard';
 import { GET } from '../../utils/http';
 import './index.css';
 
-const MiniCardList = () => {
+const MiniCardList = (props) => {
+  const { inputValue } = props;
   const [miniCards, setMiniCards] = useState([]);
 
   useEffect(() => {
-    GET('/products').then((data) => setMiniCards(() => data.products));
+    GET(`/products`).then((data) => setMiniCards(() => data.products));
   }, []);
 
   return (
     <div className="MiniCardList">
-      {miniCards.map((card) => (
-        <MiniCard imgSrc={card.thumbnail} imgAlt={card.title} key={card.id} />
-      ))}
+      {miniCards.map((card) => {
+        if (inputValue && card.category === inputValue) {
+          return (
+            <MiniCard
+              imgSrc={card.thumbnail}
+              imgAlt={card.title}
+              key={card.id}
+            />
+          );
+        } else if (inputValue === '') {
+          return (
+            <MiniCard
+              imgSrc={card.thumbnail}
+              imgAlt={card.title}
+              key={card.id}
+            />
+          );
+        }
+      })}
     </div>
   );
 };
