@@ -1,0 +1,21 @@
+.Hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 300px;
+}
+
+.Hero__text {
+  position: absolute;
+  padding: 12px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+}
+
+.Hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}

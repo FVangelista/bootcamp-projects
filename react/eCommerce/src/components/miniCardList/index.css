@@ -1,0 +1,7 @@
+.MiniCardList {
+  display: flex;
+  gap: 10px;
+  margin: 0 60px;
+  padding: 10px;
+  overflow-x: scroll;
+}
