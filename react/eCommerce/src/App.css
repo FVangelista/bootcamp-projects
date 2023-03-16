@@ -3,3 +3,67 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.ModalCard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 2;
+}
+
+.ModalCard__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 60vw;
+  height: 60vh;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+  background-color: white;
+}
+
+.ModalCard__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ModalCard__text--info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ModalCard__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ModalCard__gallery img {
+  width: 150px;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+}
+
+.ModalCard--close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: tomato;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: transform 1.35s;
+}
+
+.ModalCard--close:hover {
+  color: tomato;
+  transform: scale(1.2);
+}
