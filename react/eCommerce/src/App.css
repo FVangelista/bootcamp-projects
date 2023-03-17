@@ -4,66 +4,69 @@
   gap: 10px;
 }
 
-.ModalCard {
+.Cart {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
+  padding-top: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
+  flex-direction: column;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.65);
-  z-index: 2;
-}
-
-.ModalCard__content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  width: 60vw;
-  height: 60vh;
-  border-radius: 12px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+  min-width: 400px;
+  overflow-y: scroll;
   background-color: white;
-}
-
-.ModalCard__text {
-  display: flex;
-  flex-direction: column;
-}
-
-.ModalCard__text--info {
-  display: flex;
-  justify-content: space-between;
-}
-
-.ModalCard__gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.ModalCard__gallery img {
-  width: 150px;
-  border-radius: 12px;
+  z-index: 2;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
 }
 
-.ModalCard--close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  color: tomato;
+.Cart button {
+  align-self: flex-end;
+  padding: 10px;
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  transition: transform 1.35s;
+  text-transform: uppercase;
 }
 
-.ModalCard--close:hover {
-  color: tomato;
-  transform: scale(1.2);
+.Cart__cartList {
+  border-bottom: 1px solid red;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  height: fit-content;
+  padding: 15px;
+}
+
+.Cart__cartList--text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Cart__cartList--text h1 {
+  font-size: 1.5rem;
+}
+
+.Cart__cartList--text :nth-child(3) {
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.Cart__cartList--thumb img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.Cart__cartList__text--btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }

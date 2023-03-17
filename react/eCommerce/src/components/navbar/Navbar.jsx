@@ -1,7 +1,7 @@
 import './index.css';
 
 const Navbar = (props) => {
-  const { inputValue, setInputValue } = props;
+  const { inputValue, setInputValue, setCartVisible, cartListLength } = props;
 
   const onHandleInput = (e) => setInputValue(() => e.target.value);
 
@@ -9,6 +9,8 @@ const Navbar = (props) => {
     e.preventDefault();
     // TODO: trasmettere il valore della input (inputValue) all'elemento di ricerca
   };
+
+  const handleClick = () => setCartVisible((prev) => !prev);
 
   return (
     <div className="Navbar">
@@ -26,6 +28,7 @@ const Navbar = (props) => {
           required
         />
       </form>
+      <button onClick={handleClick}>🛒{cartListLength}</button>
     </div>
   );
 };

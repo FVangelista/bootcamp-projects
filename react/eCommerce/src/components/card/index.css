@@ -1,4 +1,5 @@
 .Card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6,13 +7,8 @@
   height: 380px;
   border-radius: 6px;
   box-shadow: 0 0 4px lightgray;
-  cursor: pointer;
   transition: transform 0.35s;
   scroll-snap-align: end;
-}
-
-.Card:hover {
-  transform: scale(1.1);
 }
 
 .Card__image {
@@ -47,4 +43,10 @@
   font-weight: bold;
   font-size: 1.2rem;
   text-align: right;
+}
+
+.Card button {
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
 }

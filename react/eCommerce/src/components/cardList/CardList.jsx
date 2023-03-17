@@ -4,7 +4,7 @@ import Card from '../card/Card';
 import SpinnerLoading from '../spinnerLoading/SpinnerLoading';
 import './index.css';
 
-const CardList = ({ title, endpoint, setModalContext }) => {
+const CardList = ({ title, endpoint, setCartList }) => {
   const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const CardList = ({ title, endpoint, setModalContext }) => {
             <Card
               productData={product}
               key={product.id}
-              setModalContext={setModalContext}
+              setCartList={setCartList}
             />
           ))
         ) : (

@@ -10,33 +10,43 @@ import './App.css';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
+  const [cartList, setCartList] = useState(
+    JSON.parse(localStorage.getItem('cartList')) || []
+  );
 
-  const [modalContext, setModalContext] = useState({
-    productData: {},
-    isVisibile: false,
-  });
+  const localStorageCartList =
+    window !== 'undefined' &&
+    JSON.parse(localStorage.getItem('cartList') || '[]').length;
+
+  const [cartVisible, setCartVisible] = useState(false);
 
   return (
     <div className="App">
-      <Navbar inputValue={inputValue} setInputValue={setInputValue} />
+      <Navbar
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        setCartVisible={setCartVisible}
+        cartListLength={localStorageCartList || cartList.length}
+      />
       <Hero />
       <MiniCardList inputValue={inputValue} />
       <CardList
         title="Technology"
         endpoint="/products?limit=10"
-        setModalContext={setModalContext}
+        setCartList={setCartList}
       />
       <CardList
         title="Skincare"
         endpoint="/products?limit=10&skip=10"
-        setModalContext={setModalContext}
+        setCartList={setCartList}
       />
       <Footer />
 
-      {modalContext.isVisibile && (
-        <ModalCard
-          productData={modalContext.productData}
-          setModalContext={setModalContext}
+      {cartVisible && (
+        <Cart
+          cartList={cartList}
+          setCartList={setCartList}
+          setCartVisible={setCartVisible}
         />
       )}
     </div>
@@ -45,39 +55,44 @@ function App() {
 
 // Modal Component
 
-function ModalCard({ productData, setModalContext }) {
-  const onHandleClose = () =>
-    setModalContext((prev) => ({
-      ...prev,
-      isVisibile: false,
-    }));
-  console.log(productData);
+function Cart({ cartList, setCartList, setCartVisible }) {
+  const onHandleClick = (cartProduct) => {
+    const filteredCartList = cartList.filter(
+      (product) => product.id !== cartProduct.id
+    );
+
+    setCartList(() => filteredCartList);
+
+    localStorage.setItem('cartList', JSON.stringify(filteredCartList));
+  };
+
+  const handleClick = () => setCartVisible((prev) => !prev);
 
   return (
-    <div className="ModalCard">
-      <div className="ModalCard__content">
-        <div className="ModalCard__text">
-          <h1>{productData.title}</h1>
-          <p>{productData.description}</p>
-          <div className="ModalCard__text--info">
-            <span>{productData.category}</span>
-            <span>{productData.price}</span>
+    <div className="Cart">
+      <button onClick={handleClick}>close ❌</button>
+      {cartList.map((productData) => {
+        return (
+          <div className="Cart__cartList" key={productData.id}>
+            <div className="Cart__cartList--text">
+              <button
+                className="Cart__cartList__text--btn"
+                onClick={() => onHandleClick(productData)}
+              >
+                ❌
+              </button>
+              <h1>{productData.title.split(' ').slice(0, 2).join(' ')}</h1>
+              <span>
+                {productData.description.split(' ').slice(0, 3).join(' ')}
+              </span>
+              <span>$ {productData.price}</span>
+            </div>
+            <div className="Cart__cartList--thumb">
+              <img src={productData.thumbnail} />
+            </div>
           </div>
-        </div>
-        <div className="ModalCard__gallery">
-          {productData.images.map((image) => (
-            <img
-              onClick={() => onHandleImageClick(image)}
-              src={image}
-              alt={image}
-              key={image}
-            />
-          ))}
-        </div>
-        <button onClick={onHandleClose} className="ModalCard--close">
-          X
-        </button>
-      </div>
+        );
+      })}
     </div>
   );
 }

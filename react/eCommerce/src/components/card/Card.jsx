@@ -1,15 +1,35 @@
 import { shortDescription } from '../../utils/func';
 import './index.css';
 
-const Card = ({ productData, setModalContext }) => {
-  const onHandleClick = () =>
-    setModalContext(() => ({
-      productData,
-      isVisibile: true,
-    }));
+const Card = ({ productData, setCartList }) => {
+  const onHandleClick = () => {
+    const localStorageCartItems =
+      JSON.parse(localStorage.getItem('cartList')) || [];
+
+    const isProductDataInsideLocalStorage = !localStorageCartItems.find(
+      (product) => product.id === productData.id
+    );
+
+    setCartList((prev) =>
+      !!prev.find((product) => product.id === productData.id)
+        ? [...prev]
+        : [...prev, productData]
+    );
+
+    if (isProductDataInsideLocalStorage) {
+      localStorage.setItem(
+        'cartList',
+        JSON.stringify([...localStorageCartItems, productData])
+      );
+
+      alert(`Apposto, ${productData.title} aggiunto al carrello!`);
+    } else {
+      alert(`Nono, ${productData.title} è già presente nel carrello!`);
+    }
+  };
 
   return (
-    <div className="Card" onClick={onHandleClick}>
+    <div className="Card">
       <img
         className="Card__image"
         src={productData.thumbnail}
@@ -22,6 +42,7 @@ const Card = ({ productData, setModalContext }) => {
         </p>
         <p className="Card__text--cat">{productData.category}</p>
         <p className="Card__text--price">$ {productData.price}</p>
+        <button onClick={onHandleClick}>🛒</button>
       </div>
     </div>
   );
