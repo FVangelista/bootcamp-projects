@@ -1,0 +1,122 @@
+.App {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  h1 {
+    color: #f3f3f3;
+  }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 75px;
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+    text-transform: capitalize;
+    letter-spacing: 0.05rem;
+    li {
+      transition: all 0.35s ease;
+      cursor: pointer;
+      &:hover {
+        color: #f3f3f3;
+      }
+    }
+  }
+  .logo {
+    font-size: 2.5rem;
+  }
+  .btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 24px;
+    border: none;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.Hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px;
+  padding: 25px;
+  text-transform: capitalize;
+  .list-nav-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+    font-size: large;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    padding: 50px 25px 25px 25px;
+    li {
+      cursor: pointer;
+      transition: all 0.35s ease;
+      &:hover {
+        color: #f3f3f3;
+      }
+    }
+  }
+}
+
+.Content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 50px;
+}
+
+.Card {
+  position: relative;
+  margin: 50px;
+  width: 250px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px #000;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    filter: saturate(125%) contrast(125%) grayscale(75%);
+  }
+
+  .info {
+    position: absolute;
+    left: 50%;
+    bottom: -25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #00000095;
+    box-shadow: 0px 0px 8px #f3f3f3;
+    color: #f3f3f3;
+    letter-spacing: 0.1rem;
+    width: 80%;
+    padding: 25px;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    ul {
+      width: 100%;
+      padding: 0px 15px;
+    }
+  }
+}
