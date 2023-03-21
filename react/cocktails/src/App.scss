@@ -20,6 +20,11 @@
       &:hover {
         color: $secondary-color;
       }
+
+      &:nth-of-type(1) {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
     }
   }
 
@@ -112,7 +117,7 @@
   }
 
   .info {
-    @include flex-container(column, center, center, 10px);
+    @include flex-container(column, space-between, center, 10px);
     @include text-style;
 
     position: absolute;
@@ -120,8 +125,10 @@
     bottom: -25%;
     transform: translateX(-50%);
 
+    padding: 10px;
     width: 90%;
     height: 150px;
+    overflow-y: scroll;
     background-color: #00000095;
     box-shadow: $primary-shadow;
     border-radius: $primary-radius;
@@ -129,6 +136,100 @@
     ul {
       @include flex-container(column, center, flex-start, 5px);
       width: 75%;
+    }
+  }
+}
+
+.SingleItem {
+  @include flex-container;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  height: 750px;
+  width: 75%;
+  background-color: $primary-color;
+  border-radius: $primary-radius;
+
+  &__text {
+    @include flex-container(column, space-evenly, center);
+    width: 50%;
+    height: 100%;
+    padding: 25px;
+    &--plain {
+      @include text-style(
+        normal,
+        1rem,
+        none,
+        capitalize,
+        0.1rem,
+        $secondary-color,
+        right
+      );
+      h1 {
+        margin-bottom: 15px;
+      }
+    }
+
+    &--list {
+      @include text-style(
+        normal,
+        1rem,
+        none,
+        capitalize,
+        0.1rem,
+        $secondary-color,
+        center
+      );
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: 50%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-right-radius: $primary-radius;
+      border-bottom-right-radius: $primary-radius;
+    }
+
+    &--caroussel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      button {
+        @include text-style(
+          normal,
+          1.1rem,
+          none,
+          capitalize,
+          0.1rem,
+          $secondary-color
+        );
+        width: 50%;
+        height: 50px;
+        border: 0;
+        cursor: pointer;
+        background-color: $primary-color;
+        transition: $transition;
+      }
+
+      .prev:hover {
+        transform: scale(1.1) translateX(11.5px) translateY(-2.25px);
+      }
+
+      .next {
+        border-bottom-right-radius: $primary-radius;
+        &:hover {
+          transform: scale(1.1) translateX(-11.5px) translateY(-2.25px);
+        }
+      }
     }
   }
 }

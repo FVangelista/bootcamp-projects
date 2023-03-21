@@ -6,31 +6,45 @@ import './App.scss';
 
 function App() {
   const [mainList, setMainList] = useState([]);
+  const [catValue, setCatValue] = useState('Cocktail');
   const [singleItemContext, setSingleItemContext] = useState({
     isVisible: false,
     payload: {},
   });
 
   useEffect(() => {
-    GET('search.php?f=d').then(({ drinks }) => setMainList(drinks));
-  });
+    GET('search.php?f=a').then(({ drinks }) => setMainList(drinks));
+  }, []);
+
+  const filteredList = (list, key, value) =>
+    list.filter((item) => item[key] === value);
 
   return (
     <div className="App">
-      <Navbar />
-      <SingleItem
-        data={singleItemContext.payload}
-        setSingleItemContext={setSingleItemContext}
-      />
-      {/* <Hero />
-      <Content fetchList={mainList} /> */}
+      <Navbar setSingleItemContext={setSingleItemContext} />
+
+      {singleItemContext.isVisible ? (
+        <SingleItem data={singleItemContext.payload} />
+      ) : (
+        <>
+          <Hero fetchList={mainList} setCatValue={setCatValue} />
+          <Content
+            fetchList={filteredList(mainList, 'strCategory', catValue)}
+            setSingleItemContext={setSingleItemContext}
+          />
+        </>
+      )}
     </div>
   );
 }
 
 // Components
 
-function Navbar() {
+function Navbar({ setSingleItemContext }) {
+  const handleClick = () => {
+    setSingleItemContext({ isVisible: false });
+  };
+
   return (
     <div className="Navbar">
       <div className="logo">
@@ -38,7 +52,7 @@ function Navbar() {
       </div>
 
       <ul className="menu">
-        <li>home</li>
+        <li onClick={handleClick}>home</li>
         <li>about</li>
         <li>mission</li>
         <li>contact</li>
@@ -50,77 +64,123 @@ function Navbar() {
   );
 }
 
-function Hero() {
+function Hero({ fetchList, setCatValue }) {
+  const handleClick = (value) => {
+    console.log(value);
+    setCatValue(value);
+  };
+
+  const result = fetchList.reduce((acc, x) => {
+    const index = acc.findIndex((y) => y.strCategory === x.strCategory);
+    if (index >= 0) {
+      acc.splice(index, 0);
+    } else {
+      acc.push(x);
+    }
+    return acc;
+  }, []);
+
   return (
     <div className="Hero">
       <h1 className="Hero__text">All about your favorite cocktail</h1>
       <h3 className="Hero__text--sub">choose wisely</h3>
       <hr className="line" />
       <ul className="list-nav-hero">
-        <li>item1</li>
-        <li>iten2</li>
-        <li>item3</li>
-        <li>item4</li>
+        {result.map((item, i) => (
+          <li onClick={() => handleClick(item.strCategory)} key={i}>
+            {item.strCategory.split(' ').splice(0, 1).join(' ')}
+          </li>
+        ))}
       </ul>
     </div>
   );
 }
 
-function Content({ fetchList }) {
+function Content({ fetchList, setSingleItemContext }) {
   return (
     <div className="Content">
       {fetchList.map((item) => (
-        <Card data={item} key={item.idDrink} />
+        <Card
+          data={item}
+          key={item.idDrink}
+          setSingleItemContext={setSingleItemContext}
+        />
       ))}
     </div>
   );
 }
 
 function Card(props) {
-  const { data } = props;
+  const { data, setSingleItemContext } = props;
+
+  const handleClick = () => {
+    setSingleItemContext((prev) => ({
+      ...prev,
+      payload: data,
+      isVisible: true,
+    }));
+  };
+
+  let obj = [];
+
+  for (let prop in data) {
+    if (prop.includes('strIngredient') && data[prop] != null) {
+      obj.push(data[prop]);
+    }
+  }
+
   return (
-    <div className="Card">
+    <div className="Card" onClick={handleClick}>
       <img src={data.strDrinkThumb} alt={data.strDrink} />
       <div className="info">
         <h2>{data.strDrink}</h2>
         <ul>
-          <li>{data.strIngredient1}</li>
-          <li>{data.strIngredient2}</li>
-          <li>{data.strIngredient3}</li>
+          {obj.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
       </div>
     </div>
   );
 }
 
-function SingleItem({ setSingleItemContext }) {
+function SingleItem({ data }) {
+  let obj = [];
+
+  for (let prop in data) {
+    if (prop.includes('strIngredient') && data[prop] != null) {
+      obj.push(data[prop]);
+    }
+  }
+
   return (
-    <div className="singleItem">
-      <div className="singleItem__text">
-        <h1>Refreshing Drink</h1>
-        <p>strCategory</p>
-        <p>strGlass</p>
-        <ul>
+    <div className="SingleItem">
+      <div className="SingleItem__text">
+        <div className="SingleItem__text--plain">
+          <h1>{data.strDrink}</h1>
+          <h4>{data.strCategory}</h4>
+          <h4>{data.strGlass}</h4>
+        </div>
+        <ul className="SingleItem__text--list">
           <h3>ingredients</h3>
-          <li>strIngredient1</li>
+          {obj.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
-        <ul>
+        <ul className="SingleItem__text--list">
           <h3>instructions</h3>
-          <li>strIngredient1</li>
+          <li>{data.strInstructions}</li>
         </ul>
       </div>
-      <div className="singleItem__img">
-        {/* strDrinkThumb */}
-        <img
-          src="https://www.thecocktaildb.com/images/media/drink/l3cd7f1504818306.jpg"
-          alt=""
-        />
-        <div className="singleItem__img--caroussel">
-          <button>previous</button>
-          <button>next</button>
+      <div className="SingleItem__img">
+        <img src={data.strDrinkThumb} alt="" />
+        <div className="SingleItem__img--caroussel">
+          <button className="prev">previous</button>
+          <button className="next">next</button>
         </div>
       </div>
     </div>
   );
 }
+
 export default App;
