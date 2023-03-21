@@ -6,19 +6,29 @@ import './App.scss';
 
 function App() {
   const [mainList, setMainList] = useState([]);
+  const [singleItemContext, setSingleItemContext] = useState({
+    isVisible: false,
+    payload: {},
+  });
 
   useEffect(() => {
-    GET('search.php?f=a').then(({ drinks }) => setMainList(drinks));
+    GET('search.php?f=d').then(({ drinks }) => setMainList(drinks));
   });
 
   return (
     <div className="App">
       <Navbar />
-      <Hero />
-      <Content fetchList={mainList} />
+      <SingleItem
+        data={singleItemContext.payload}
+        setSingleItemContext={setSingleItemContext}
+      />
+      {/* <Hero />
+      <Content fetchList={mainList} /> */}
     </div>
   );
 }
+
+// Components
 
 function Navbar() {
   return (
@@ -43,8 +53,9 @@ function Navbar() {
 function Hero() {
   return (
     <div className="Hero">
-      <h1>All about your favorite cocktail</h1>
-      <h3>choose wisely</h3>
+      <h1 className="Hero__text">All about your favorite cocktail</h1>
+      <h3 className="Hero__text--sub">choose wisely</h3>
+      <hr className="line" />
       <ul className="list-nav-hero">
         <li>item1</li>
         <li>iten2</li>
@@ -82,4 +93,34 @@ function Card(props) {
   );
 }
 
+function SingleItem({ setSingleItemContext }) {
+  return (
+    <div className="singleItem">
+      <div className="singleItem__text">
+        <h1>Refreshing Drink</h1>
+        <p>strCategory</p>
+        <p>strGlass</p>
+        <ul>
+          <h3>ingredients</h3>
+          <li>strIngredient1</li>
+        </ul>
+        <ul>
+          <h3>instructions</h3>
+          <li>strIngredient1</li>
+        </ul>
+      </div>
+      <div className="singleItem__img">
+        {/* strDrinkThumb */}
+        <img
+          src="https://www.thecocktaildb.com/images/media/drink/l3cd7f1504818306.jpg"
+          alt=""
+        />
+        <div className="singleItem__img--caroussel">
+          <button>previous</button>
+          <button>next</button>
+        </div>
+      </div>
+    </div>
+  );
+}
 export default App;

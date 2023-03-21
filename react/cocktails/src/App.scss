@@ -1,35 +1,33 @@
+@import './styles/variables';
+@import './styles/mixins';
+
 .App {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-  h1 {
-    color: #f3f3f3;
-  }
+  scroll-behavior: smooth;
 }
 
 .Navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-container(row, space-between);
   padding: 25px 75px;
   .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    list-style-type: none;
-    text-transform: capitalize;
-    letter-spacing: 0.05rem;
+    @include flex-container(row, center, center, 20px);
+    @include text-style;
+
     li {
-      transition: all 0.35s ease;
+      transition: $transition;
       cursor: pointer;
+
       &:hover {
-        color: #f3f3f3;
+        color: $secondary-color;
       }
     }
   }
+
   .logo {
+    color: $secondary-color;
     font-size: 2.5rem;
   }
+
   .btn {
     padding: 0.5rem 1.5rem;
     border-radius: 24px;
@@ -38,7 +36,7 @@
     letter-spacing: 0.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.35s ease;
+    transition: $transition;
     &:hover {
       transform: scale(1.1);
     }
@@ -46,77 +44,91 @@
 }
 
 .Hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 25px;
+  @include flex-container(column, center, center, 20px);
   padding: 25px;
-  text-transform: capitalize;
+  height: 250px;
+
+  &__text {
+    @include text-style(bold, 2rem);
+  }
+
+  &__text--sub {
+    @include text-style(
+      normal,
+      1.5rem,
+      none,
+      capitalize,
+      0.1rem,
+      $secondary-color
+    );
+  }
+
+  .line {
+    width: 80%;
+    border: none;
+    border-bottom: 0.75px solid $primary-color;
+  }
+
   .list-nav-hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    list-style-type: none;
-    font-size: large;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    padding: 50px 25px 25px 25px;
+    @include flex-container(row, center, center, 20px);
+    @include text-style(
+      normal,
+      1.25rem,
+      none,
+      uppercase,
+      0.1rem,
+      $secondary-color
+    );
+
     li {
       cursor: pointer;
-      transition: all 0.35s ease;
+      transition: $transition;
+
       &:hover {
-        color: #f3f3f3;
+        color: $primary-color;
       }
     }
   }
 }
 
 .Content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin: 50px;
+  @include flex-container(row, center, center, 0px, wrap);
+  padding: 25px;
 }
 
 .Card {
   position: relative;
-  margin: 50px;
+  margin: 65px;
   width: 250px;
-  height: 300px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 8px #000;
+  height: 250px;
+  border-radius: $primary-radius;
+  box-shadow: $primary-shadow;
 
   img {
     width: 100%;
     height: 100%;
-    border-radius: 8px;
     object-fit: cover;
-    filter: saturate(125%) contrast(125%) grayscale(75%);
+    border-radius: $primary-radius;
   }
 
   .info {
+    @include flex-container(column, center, center, 10px);
+    @include text-style;
+
     position: absolute;
     left: 50%;
     bottom: -25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #00000095;
-    box-shadow: 0px 0px 8px #f3f3f3;
-    color: #f3f3f3;
-    letter-spacing: 0.1rem;
-    width: 80%;
-    padding: 25px;
     transform: translateX(-50%);
-    border-radius: 8px;
+
+    width: 90%;
+    height: 150px;
+    background-color: #00000095;
+    box-shadow: $primary-shadow;
+    border-radius: $primary-radius;
+
     ul {
-      width: 100%;
-      padding: 0px 15px;
+      @include flex-container(column, center, flex-start, 5px);
+      width: 75%;
     }
   }
 }

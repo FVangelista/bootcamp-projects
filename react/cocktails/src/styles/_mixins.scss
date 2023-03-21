@@ -1,0 +1,32 @@
+@mixin flex-container(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $gap: '0px',
+  $wrapper: 'nowrap'
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrapper;
+}
+
+@mixin text-style(
+  $weight: normal,
+  $size: 1rem,
+  $list: none,
+  $transform: capitalize,
+  $space: 0.05rem,
+  $color: $primary-color,
+  $t-align: center
+) {
+  font-weight: $weight;
+  font-size: $size;
+  list-style-type: $list;
+  text-transform: $transform;
+  letter-spacing: $space;
+  color: $color;
+  text-align: $t-align;
+}
