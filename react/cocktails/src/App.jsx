@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { FaCocktail } from 'react-icons/fa';
 
-import GET from './utils/utils';
-import './App.scss';
+import { GET, objFilter } from './utils/utils';
+import styles from './App.module.scss';
+
+// Root
 
 function App() {
   const [mainList, setMainList] = useState([]);
@@ -20,11 +22,14 @@ function App() {
     list.filter((item) => item[key] === value);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Navbar setSingleItemContext={setSingleItemContext} />
 
       {singleItemContext.isVisible ? (
-        <SingleItem data={singleItemContext.payload} />
+        <SingleItem
+          singleData={singleItemContext.payload}
+          fetchList={filteredList(mainList, 'strCategory', catValue)}
+        />
       ) : (
         <>
           <Hero fetchList={mainList} setCatValue={setCatValue} />
@@ -34,6 +39,8 @@ function App() {
           />
         </>
       )}
+
+      <Footer />
     </div>
   );
 }
@@ -46,18 +53,18 @@ function Navbar({ setSingleItemContext }) {
   };
 
   return (
-    <div className="Navbar">
-      <div className="logo">
+    <div className={styles.Navbar}>
+      <div className={styles.logo}>
         <FaCocktail />
       </div>
 
-      <ul className="menu">
+      <ul className={styles.menu}>
         <li onClick={handleClick}>home</li>
         <li>about</li>
         <li>mission</li>
         <li>contact</li>
         <li>
-          <button className="btn">preorder</button>
+          <button className={styles.btn}>preorder</button>
         </li>
       </ul>
     </div>
@@ -81,13 +88,17 @@ function Hero({ fetchList, setCatValue }) {
   }, []);
 
   return (
-    <div className="Hero">
-      <h1 className="Hero__text">All about your favorite cocktail</h1>
-      <h3 className="Hero__text--sub">choose wisely</h3>
-      <hr className="line" />
-      <ul className="list-nav-hero">
+    <div className={styles.Hero}>
+      <h1 className={styles.text}>All about your favorite cocktail</h1>
+      <h3 className={styles.textSub}>choose wisely</h3>
+      <hr className={styles.line} />
+      <ul className={styles.navHero}>
         {result.map((item, i) => (
-          <li onClick={() => handleClick(item.strCategory)} key={i}>
+          <li
+            className={styles.navHeroList}
+            onClick={() => handleClick(item.strCategory)}
+            key={i}
+          >
             {item.strCategory.split(' ').splice(0, 1).join(' ')}
           </li>
         ))}
@@ -98,7 +109,7 @@ function Hero({ fetchList, setCatValue }) {
 
 function Content({ fetchList, setSingleItemContext }) {
   return (
-    <div className="Content">
+    <div className={styles.Content}>
       {fetchList.map((item) => (
         <Card
           data={item}
@@ -121,21 +132,17 @@ function Card(props) {
     }));
   };
 
-  let obj = [];
-
-  for (let prop in data) {
-    if (prop.includes('strIngredient') && data[prop] != null) {
-      obj.push(data[prop]);
-    }
-  }
-
   return (
-    <div className="Card" onClick={handleClick}>
-      <img src={data.strDrinkThumb} alt={data.strDrink} />
-      <div className="info">
+    <div className={styles.Card} onClick={handleClick}>
+      <img
+        className={styles.img}
+        src={data.strDrinkThumb}
+        alt={data.strDrink}
+      />
+      <div className={styles.info}>
         <h2>{data.strDrink}</h2>
-        <ul>
-          {obj.map((item, i) => (
+        <ul className={styles.list}>
+          {objFilter(data, 'strIngredient').map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
@@ -144,40 +151,49 @@ function Card(props) {
   );
 }
 
-function SingleItem({ data }) {
-  let obj = [];
-
-  for (let prop in data) {
-    if (prop.includes('strIngredient') && data[prop] != null) {
-      obj.push(data[prop]);
-    }
-  }
+function SingleItem({ singleData, fetchList }) {
+  const handleClick = () => {};
 
   return (
-    <div className="SingleItem">
-      <div className="SingleItem__text">
-        <div className="SingleItem__text--plain">
-          <h1>{data.strDrink}</h1>
-          <h4>{data.strCategory}</h4>
-          <h4>{data.strGlass}</h4>
+    <div className={styles.SingleItem}>
+      <div className={styles.text}>
+        <div className={styles.plain}>
+          <h1 className={styles.title}>{singleData.strDrink}</h1>
+          <h4>{singleData.strCategory}</h4>
+          <h4>{singleData.strGlass}</h4>
         </div>
-        <ul className="SingleItem__text--list">
+        <ul className={styles.list}>
           <h3>ingredients</h3>
-          {obj.map((item, i) => (
+          {objFilter(singleData, 'strIngredient').map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
-        <ul className="SingleItem__text--list">
+        <ul className={styles.list}>
           <h3>instructions</h3>
-          <li>{data.strInstructions}</li>
+          <li>{singleData.strInstructions}</li>
         </ul>
       </div>
-      <div className="SingleItem__img">
-        <img src={data.strDrinkThumb} alt="" />
-        <div className="SingleItem__img--caroussel">
-          <button className="prev">previous</button>
-          <button className="next">next</button>
+      <div className={styles.imgWrapper}>
+        <img className={styles.img} src={singleData.strDrinkThumb} alt="" />
+
+        <div className={styles.caroussel}>
+          <button className={`${styles.btn} ${styles.prev}`}>previous</button>
+          <button className={`${styles.btn} ${styles.next}`}>next</button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div className={styles.Footer}>
+      <div className={styles.info}>
+        <h4>e-mail: random@random.com</h4>
+        <p>&copy;cocktails .srl</p>
+      </div>
+      <div className={styles.logo}>
+        <FaCocktail />
       </div>
     </div>
   );
