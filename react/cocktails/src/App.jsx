@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaCocktail } from 'react-icons/fa';
+import logoNav from './assets/logoNav.svg';
+import logo from './assets/logo.svg';
 
 import { GET, objFilter } from './utils/utils';
 import styles from './App.module.scss';
@@ -7,6 +9,7 @@ import styles from './App.module.scss';
 // Root
 
 function App() {
+  const [isPopup, setPopup] = useState(false);
   const [mainList, setMainList] = useState([]);
   const [catValue, setCatValue] = useState('Cocktail');
   const [singleItemContext, setSingleItemContext] = useState({
@@ -23,7 +26,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Navbar setSingleItemContext={setSingleItemContext} />
+      <Navbar setSingleItemContext={setSingleItemContext} setPopup={setPopup} />
 
       {singleItemContext.isVisible ? (
         <SingleItem
@@ -41,21 +44,35 @@ function App() {
       )}
 
       <Footer />
+
+      {isPopup && (
+        <Popup>
+          <h3>got it!</h3>
+          <p>thank you for your order.</p>
+        </Popup>
+      )}
     </div>
   );
 }
 
 // Components
 
-function Navbar({ setSingleItemContext }) {
+function Navbar({ setSingleItemContext, setPopup }) {
   const handleClick = () => {
     setSingleItemContext({ isVisible: false });
+  };
+
+  const handlePopup = () => {
+    setPopup(true);
+    setTimeout(() => {
+      setPopup(false);
+    }, 2000);
   };
 
   return (
     <div className={styles.Navbar}>
       <div className={styles.logo}>
-        <FaCocktail />
+        <img src={logoNav} alt="" />
       </div>
 
       <ul className={styles.menu}>
@@ -64,7 +81,9 @@ function Navbar({ setSingleItemContext }) {
         <li>mission</li>
         <li>contact</li>
         <li>
-          <button className={styles.btn}>preorder</button>
+          <button onClick={handlePopup} className={styles.btn}>
+            preorder
+          </button>
         </li>
       </ul>
     </div>
@@ -162,16 +181,20 @@ function SingleItem({ singleData, fetchList }) {
           <h4>{singleData.strCategory}</h4>
           <h4>{singleData.strGlass}</h4>
         </div>
-        <ul className={styles.list}>
-          <h3>ingredients</h3>
-          {objFilter(singleData, 'strIngredient').map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-        <ul className={styles.list}>
-          <h3>instructions</h3>
-          <li>{singleData.strInstructions}</li>
-        </ul>
+        <div className={styles.lists}>
+          <ul className={styles.list}>
+            <h3 className={styles.title}>ingredients</h3>
+            {objFilter(singleData, 'strIngredient').map((item, i) => (
+              <li className={styles.item} key={i}>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <ul className={styles.list}>
+            <h3 className={styles.title}>instructions</h3>
+            <li className={styles.item}>{singleData.strInstructions}</li>
+          </ul>
+        </div>
       </div>
       <div className={styles.imgWrapper}>
         <img className={styles.img} src={singleData.strDrinkThumb} alt="" />
@@ -189,14 +212,20 @@ function Footer() {
   return (
     <div className={styles.Footer}>
       <div className={styles.info}>
-        <h4>e-mail: random@random.com</h4>
-        <p>&copy;cocktails .srl</p>
+        <span>&copy;cocktails bortoletti.srl</span>
+        <span>e-mail: random@random.com</span>
       </div>
       <div className={styles.logo}>
-        <FaCocktail />
+        <img src={logo} alt="" />
       </div>
     </div>
   );
+}
+
+// Side Components
+
+function Popup({ children }) {
+  return <div className={styles.Popup}>{children}</div>;
 }
 
 export default App;

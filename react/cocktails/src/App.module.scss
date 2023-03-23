@@ -6,14 +6,54 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   scroll-behavior: smooth;
   min-height: 100vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: start;
+    opacity: 0.2;
+    z-index: -15;
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      25% 100%,
+      25% 25%,
+      75% 25%,
+      75% 75%,
+      25% 75%,
+      25% 100%,
+      100% 100%,
+      100% 0%
+    );
+    clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      25% 100%,
+      25% 25%,
+      75% 25%,
+      75% 75%,
+      25% 75%,
+      25% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
 }
 
 .Navbar {
   @include flex-container(row, space-between);
   padding: 25px 75px;
+  max-width: 1600px;
+  margin: 0 auto;
   .menu {
     @include flex-container(row, center, center, 20px);
-    @include text-style;
+    @include text-style(normal, 1.25rem, none, capitalize, 0.1rem);
 
     li {
       transition: $transition;
@@ -32,7 +72,7 @@
 
   .logo {
     color: $secondary-color;
-    font-size: 2.5rem;
+    font-size: 5rem;
   }
 
   .btn {
@@ -42,9 +82,12 @@
     text-transform: capitalize;
     letter-spacing: 0.1rem;
     font-weight: bold;
+
     cursor: pointer;
     transition: $transition;
+    background-color: $primary-alpha-color;
     &:hover {
+      background-color: $primary-color;
       color: $secondary-color;
       transform: scale(1.1);
     }
@@ -72,9 +115,10 @@
   }
 
   .line {
-    width: 80%;
+    width: 100%;
+    max-width: 1600px;
     border: none;
-    border-bottom: 0.75px solid $primary-color;
+    border-bottom: 0.75px solid $primary-alpha-color;
   }
 
   .navHero {
@@ -101,7 +145,9 @@
 
 .Content {
   @include flex-container(row, center, center, 0px, wrap);
-  padding: 25px;
+  padding: 25px 25px 100px 25px;
+  margin: 0 auto;
+  max-width: 1600px;
 }
 
 .Card {
@@ -168,7 +214,7 @@
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   height: 500px;
-  width: 1000px;
+  width: 950px;
   background-color: $primary-color;
   border-radius: $primary-radius;
   box-shadow: $primary-shadow;
@@ -178,6 +224,7 @@
     width: 50%;
     height: 100%;
     padding: 25px;
+
     .plain {
       @include text-style(
         normal,
@@ -194,16 +241,33 @@
       }
     }
 
-    .list {
-      @include text-style(
-        normal,
-        1rem,
-        none,
-        capitalize,
-        0.1rem,
-        $bg-color,
-        center
-      );
+    .lists {
+      @include flex-container(row, center, flex-start, 20px);
+
+      width: 100%;
+      padding: 20px;
+
+      .title {
+        padding-bottom: 15px;
+      }
+
+      .list {
+        @include text-style(
+          normal,
+          1rem,
+          square,
+          capitalize,
+          0.1rem,
+          $bg-color,
+          left
+        );
+
+        width: 50%;
+
+        .item {
+          margin-left: 15px;
+        }
+      }
     }
   }
 
@@ -240,22 +304,23 @@
         height: 50px;
         border: 0;
         cursor: pointer;
-        background-color: $primary-color;
         transition: $transition;
+        background-color: $secondary-color;
+        color: $primary-color;
       }
 
       .prev:hover {
-        background-color: $secondary-color;
-        color: $primary-color;
-        transform: scale(1.1) translateX(7.5px) translateY(-2.25px);
+        background-color: $primary-color;
+        color: $secondary-color;
+        transform: scale(1.1) translateX(10.5px) translateY(-2.25px);
       }
 
       .next {
         border-bottom-right-radius: $primary-radius;
         &:hover {
-          background-color: $secondary-color;
-          color: $primary-color;
-          transform: scale(1.1) translateX(-7.5px) translateY(-2.25px);
+          background-color: $bg-color;
+          color: $secondary-color;
+          transform: scale(1.1) translateX(-10.5px) translateY(-2.25px);
         }
       }
     }
@@ -263,9 +328,10 @@
 }
 
 .Footer {
-  @include flex-container(row, space-evenly);
+  @include flex-container;
+
   position: absolute;
-  top: 100%;
+  top: calc(100% - 75px);
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
@@ -274,10 +340,57 @@
   .logo {
     color: $primary-color;
     font-size: 2.5rem;
+    width: 50%;
+    text-align: center;
   }
 
   .info {
-    @include text-style;
+    @include flex-container(row, center, center, 20px);
+    @include text-style(normal, 0.75rem);
+    width: 50%;
+  }
+}
+
+.Popup {
+  position: fixed;
+  right: 50%;
+  transform: translateX(50%);
+  top: 5%;
+  padding: 25px;
+  border-radius: $primary-radius;
+  box-shadow: $secondary-shadow;
+  height: 100px;
+  width: 200px;
+  z-index: 5;
+  @include flex-container(column);
+  @include text-style(normal, 1rem, none, capitalize, 0.05rem, $primary-color);
+
+  animation: fadeInOut 2s ease;
+}
+
+@media screen and (max-width: 1100px) {
+  .SingleItem {
+    @include flex-container(column-reverse);
+    width: 500px;
+    height: 950px;
+
+    .text {
+      width: 100%;
+    }
+
+    .imgWrapper {
+      width: 100%;
+
+      .img {
+        border-top-left-radius: $primary-radius;
+      }
+
+      .caroussel {
+        .btn {
+          border-radius: 0px;
+        }
+      }
+    }
   }
 }
 
@@ -287,5 +400,17 @@
   }
   100% {
     transform: translateX(0%) translateY(50%);
+  }
+}
+
+@keyframes fadeInOut {
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
   }
 }
