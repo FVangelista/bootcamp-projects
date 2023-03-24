@@ -1,17 +1,23 @@
-import { useState, useEffect } from 'react';
-import { FaCocktail } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 import logoNav from './assets/logoNav.svg';
 import logo from './assets/logo.svg';
 
 import { GET, objFilter } from './utils/utils';
 import styles from './App.module.scss';
 
+import styled from 'styled-components';
+
 // Root
 
 function App() {
+  const homeRef = useRef(null);
+  const mainRef = useRef(null);
+  const formRef = useRef(null);
+
   const [isPopup, setPopup] = useState(false);
   const [mainList, setMainList] = useState([]);
-  const [catValue, setCatValue] = useState('Cocktail');
+  const [catValue, setCatValue] = useState('Shot');
   const [singleItemContext, setSingleItemContext] = useState({
     isVisible: false,
     payload: {},
@@ -26,42 +32,115 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Navbar setSingleItemContext={setSingleItemContext} setPopup={setPopup} />
+      <Home
+        setSingleItemContext={setSingleItemContext}
+        setPopup={setPopup}
+        mainList={mainList}
+        setCatValue={setCatValue}
+      />
 
-      {singleItemContext.isVisible ? (
-        <SingleItem
-          singleData={singleItemContext.payload}
-          fetchList={filteredList(mainList, 'strCategory', catValue)}
-        />
-      ) : (
-        <>
-          <Hero fetchList={mainList} setCatValue={setCatValue} />
-          <Content
-            fetchList={filteredList(mainList, 'strCategory', catValue)}
-            setSingleItemContext={setSingleItemContext}
-          />
-        </>
-      )}
+      <Main
+        fetchList={filteredList(mainList, 'strCategory', catValue)}
+        setSingleItemContext={setSingleItemContext}
+        singleItemContext={singleItemContext}
+        singleData={singleItemContext.payload}
+        mainList={mainList}
+        setCatValue={setCatValue}
+      />
 
+      <Form />
       <Footer />
-
-      {isPopup && (
-        <Popup>
-          <h3>got it!</h3>
-          <p>thank you for your order.</p>
-        </Popup>
-      )}
     </div>
   );
 }
 
-// Components
+// Main Components
+function Home(props) {
+  const { setSingleItemContext, setPopup, mainList, setCatValue } = props;
+  return (
+    <section className={styles.Home}>
+      <Navbar setSingleItemContext={setSingleItemContext} setPopup={setPopup} />
+      <Hero />
+    </section>
+  );
+}
 
-function Navbar({ setSingleItemContext, setPopup }) {
-  const handleClick = () => {
-    setSingleItemContext({ isVisible: false });
+function Main(props) {
+  const {
+    fetchList,
+    setSingleItemContext,
+    singleItemContext,
+    singleData,
+    mainList,
+    setCatValue,
+  } = props;
+
+  const handleClick = (value) => {
+    console.log(value);
+    setCatValue(value);
   };
 
+  const result = mainList.reduce((acc, x) => {
+    const index = acc.findIndex((y) => y.strCategory === x.strCategory);
+    if (index >= 0) {
+      acc.splice(index, 0);
+    } else {
+      acc.push(x);
+    }
+    return acc;
+  }, []);
+
+  return (
+    <section className={styles.Main}>
+      {singleItemContext.isVisible ? (
+        <SingleItem
+          setSingleItemContext={setSingleItemContext}
+          singleData={singleData}
+        />
+      ) : (
+        <>
+          <ul className={styles.navMain}>
+            {result.map((item, i) => (
+              <li
+                className={styles.navMainList}
+                onClick={() => handleClick(item.strCategory)}
+                key={i}
+              >
+                {item.strCategory.split(' ').splice(0, 1).join(' ')}
+              </li>
+            ))}
+          </ul>
+          <Content
+            fetchList={fetchList}
+            setSingleItemContext={setSingleItemContext}
+          />
+        </>
+      )}
+    </section>
+  );
+}
+
+function Form() {
+  return <section className={styles.Form}></section>;
+}
+
+function Footer() {
+  return (
+    <div className={styles.Footer}>
+      <div className={styles.info}>
+        <span>&copy;cocktails bortoletti.srl</span>
+        <span>e-mail: random@random.com</span>
+      </div>
+      <div className={styles.logo}>
+        <img src={logo} alt="" />
+      </div>
+    </div>
+  );
+}
+
+// Small Components
+
+function Navbar({ setPopup }) {
   const handlePopup = () => {
     setPopup(true);
     setTimeout(() => {
@@ -76,7 +155,7 @@ function Navbar({ setSingleItemContext, setPopup }) {
       </div>
 
       <ul className={styles.menu}>
-        <li onClick={handleClick}>home</li>
+        <li>home</li>
         <li>about</li>
         <li>mission</li>
         <li>contact</li>
@@ -90,39 +169,63 @@ function Navbar({ setSingleItemContext, setPopup }) {
   );
 }
 
-function Hero({ fetchList, setCatValue }) {
-  const handleClick = (value) => {
-    console.log(value);
-    setCatValue(value);
-  };
+// Styled Components
 
-  const result = fetchList.reduce((acc, x) => {
-    const index = acc.findIndex((y) => y.strCategory === x.strCategory);
-    if (index >= 0) {
-      acc.splice(index, 0);
-    } else {
-      acc.push(x);
-    }
-    return acc;
-  }, []);
+const HeroWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  height: 250px;
+  width: 75%;
+  max-width: 1600px;
+  margin: 0 auto;
+`;
 
+const HeroText = styled.h1`
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #b10027;
+`;
+const LineHero = styled.hr`
+  height: 100%;
+  border: 0.75px solid #b1002681;
+`;
+
+const HeroSub = styled.h3`
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  text-align: start;
+  letter-spacing: 0.1rem;
+  color: #b4ced4;
+`;
+
+function Hero() {
   return (
-    <div className={styles.Hero}>
-      <h1 className={styles.text}>All about your favorite cocktail</h1>
-      <h3 className={styles.textSub}>choose wisely</h3>
-      <hr className={styles.line} />
-      <ul className={styles.navHero}>
-        {result.map((item, i) => (
-          <li
-            className={styles.navHeroList}
-            onClick={() => handleClick(item.strCategory)}
-            key={i}
-          >
-            {item.strCategory.split(' ').splice(0, 1).join(' ')}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <HeroWrapper>
+      <HeroText>make your choice</HeroText>
+      <LineHero />
+      <HeroSub>
+        A cocktail is an alcoholic mixed drink. Most commonly, cocktails are
+        either a single spirit or a combination of spirits, mixed with other
+        ingredients such as juices, flavored syrups, tonic water, shrubs, and
+        bitters.
+      </HeroSub>
+    </HeroWrapper>
+    // <div className={styles.Hero}>
+    //   <h1 className={styles.text}>make your choice</h1>
+    //   <hr className={styles.line} />
+    //   <h3 className={styles.textSub}>
+    //     A cocktail is an alcoholic mixed drink. Most commonly, cocktails are
+    //     either a single spirit or a combination of spirits, mixed with other
+    //     ingredients such as juices, flavored syrups, tonic water, shrubs, and
+    //     bitters.
+    //   </h3>
+    // </div>
   );
 }
 
@@ -170,12 +273,17 @@ function Card(props) {
   );
 }
 
-function SingleItem({ singleData, fetchList }) {
-  const handleClick = () => {};
+function SingleItem({ setSingleItemContext, singleData }) {
+  const handleClick = () => {
+    setSingleItemContext({ isVisible: false });
+  };
 
   return (
     <div className={styles.SingleItem}>
       <div className={styles.text}>
+        <button onClick={handleClick} className={styles.btn}>
+          <IoMdArrowRoundBack />
+        </button>
         <div className={styles.plain}>
           <h1 className={styles.title}>{singleData.strDrink}</h1>
           <h4>{singleData.strCategory}</h4>
@@ -208,20 +316,6 @@ function SingleItem({ singleData, fetchList }) {
   );
 }
 
-function Footer() {
-  return (
-    <div className={styles.Footer}>
-      <div className={styles.info}>
-        <span>&copy;cocktails bortoletti.srl</span>
-        <span>e-mail: random@random.com</span>
-      </div>
-      <div className={styles.logo}>
-        <img src={logo} alt="" />
-      </div>
-    </div>
-  );
-}
-
 // Side Components
 
 function Popup({ children }) {
@@ -229,3 +323,10 @@ function Popup({ children }) {
 }
 
 export default App;
+
+// {isPopup && (
+//   <Popup>
+//     <h3>got it!</h3>
+//     <p>thank you for your order.</p>
+//   </Popup>
+// )}
