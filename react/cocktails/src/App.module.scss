@@ -9,13 +9,17 @@
 }
 
 .Home {
-  // border: 5px solid red;
+  @include flex-container(column);
+
   height: 100vh;
   width: 100vw;
 
   .Navbar {
     @include flex-container(row, space-between);
+
+    height: 10vh;
     padding: 25px 75px;
+    width: 100%;
     max-width: 1600px;
     margin: 0 auto;
 
@@ -39,58 +43,135 @@
     }
 
     .btn {
-      padding: 0.5rem 1.5rem;
-      border-radius: 24px;
-      border: none;
-      text-transform: capitalize;
-      letter-spacing: 0.1rem;
-      font-weight: bold;
-
-      cursor: pointer;
-      transition: $transition;
-      background-color: $primary-alpha-color;
-      &:hover {
-        background-color: $primary-color;
-        color: $secondary-color;
-        transform: scale(1.1);
-      }
+      @include button(
+        $secondary-color,
+        $primary-color,
+        $secondary-color,
+        $primary-color,
+        1rem
+      );
     }
   }
 
   .Hero {
-    @include flex-container(row-reverse, center, center, 20px);
+    @include flex-container(column, space-evenly, center);
+    position: relative;
     padding: 25px;
-    height: 250px;
-    width: 75%;
+    height: 90vh;
+    width: 100%;
     max-width: 1600px;
     margin: 0 auto;
 
-    .text {
-      @include text-style(
-        bold,
-        2rem,
-        none,
-        uppercase,
-        0.1rem,
-        $secondary-color
-      );
+    .textWrapper {
+      @include flex-container(row-reverse, center, center, 20px);
+      width: 800px;
+      height: 300px;
+      padding: 25px;
+      position: absolute;
+      bottom: 6rem;
+      right: 6rem;
+      user-select: none;
+
+      z-index: 15;
+
+      .text {
+        width: 30%;
+        @include text-style(
+          bold,
+          2rem,
+          none,
+          uppercase,
+          0.1rem,
+          $secondary-color,
+          start
+        );
+      }
+
+      .line {
+        height: 75%;
+        width: 0.75px;
+        background-color: $primary-alpha-color;
+        border: 0;
+      }
+
+      .textSub {
+        width: 60%;
+        @include text-style(
+          normal,
+          1.5rem,
+          none,
+          capitalize,
+          0.1rem,
+          $primary-color,
+          end
+        );
+      }
     }
 
-    .line {
-      height: 100%;
-      border: 0.75px solid $primary-alpha-color;
+    .textWrapperSecond {
+      @include flex-container(row, center, center, 20px);
+      width: 800px;
+      height: 250px;
+      padding: 25px;
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      user-select: none;
+
+      z-index: 15;
+
+      .text {
+        width: 30%;
+        @include text-style(
+          bold,
+          2rem,
+          none,
+          uppercase,
+          0.1rem,
+          $secondary-color,
+          end
+        );
+      }
+
+      .line {
+        height: 75%;
+        width: 0.75px;
+        background-color: $primary-alpha-color;
+        border: 0;
+      }
+
+      .textSub {
+        width: 60%;
+        @include text-style(
+          normal,
+          1.5rem,
+          none,
+          capitalize,
+          0.1rem,
+          $primary-color,
+          start
+        );
+      }
     }
 
-    .textSub {
-      @include text-style(
-        normal,
-        1.5rem,
-        none,
-        capitalize,
-        0.1rem,
-        $primary-color,
-        start
-      );
+    .videoWrapper {
+      width: 90%;
+      height: 610px;
+      margin: 0 auto;
+      box-shadow: $primary-shadow;
+      border-radius: 40px;
+
+      video {
+        width: 100%;
+        height: 100%;
+        filter: saturate(1.2);
+        border-radius: 40px;
+        object-fit: cover;
+        transition: $transition;
+        &:hover {
+          border-radius: 0;
+        }
+      }
     }
   }
 
@@ -109,24 +190,24 @@
     -webkit-clip-path: polygon(
       0% 0%,
       0% 100%,
-      25% 100%,
-      25% 25%,
-      75% 25%,
-      75% 75%,
-      25% 75%,
-      25% 100%,
+      15% 100%,
+      15% 20%,
+      85% 20%,
+      85% 90%,
+      15% 90%,
+      15% 100%,
       100% 100%,
       100% 0%
     );
     clip-path: polygon(
       0% 0%,
       0% 100%,
-      25% 100%,
-      25% 25%,
-      75% 25%,
-      75% 75%,
-      25% 75%,
-      25% 100%,
+      15% 100%,
+      15% 20%,
+      85% 20%,
+      85% 90%,
+      15% 90%,
+      15% 100%,
       100% 100%,
       100% 0%
     );
@@ -134,14 +215,16 @@
 }
 
 .Main {
-  @include flex-container(column);
-  // border: 5px solid green;
+  @include flex-container(row-reverse);
+  position: relative;
   height: 100vh;
   width: 100vw;
-  padding: 25px 25px 100px 25px;
+  max-width: 1600px;
+  padding: 20px;
+  margin: 0 auto;
 
   .navMain {
-    @include flex-container(row, center, center, 20px);
+    @include flex-container(column, center, center, 20px, wrap);
     @include text-style(
       normal,
       1.25rem,
@@ -150,11 +233,15 @@
       0.1rem,
       $secondary-color
     );
+    padding: 20px;
 
-    width: 100%;
-    height: 20%;
+    width: 20%;
+    height: 100%;
+    overflow-wrap: break-word;
 
     .navMainList {
+      padding: 20px 10px;
+      width: 100%;
       cursor: pointer;
       transition: $transition;
 
@@ -165,35 +252,35 @@
   }
 
   .Content {
-    @include flex-container(row, center, flex-start, 0px, wrap);
-
-    padding: 25px 25px 100px 25px;
+    @include flex-container(row, center, center, 0px, wrap);
     margin: 0 auto;
-    width: 75%;
-    // max-width: 1600px;
-    height: 80%;
+    width: 80%;
+    max-width: 1600px;
+    height: 75%;
+    padding: 20px;
     overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 
   .Card {
     position: relative;
-    margin: 65px;
+    margin: 20px 65px;
     width: 250px;
     height: 250px;
     border-radius: $primary-radius;
     box-shadow: $secondary-shadow;
     cursor: pointer;
-    filter: saturate(1.75);
-    transition: $transition;
-    z-index: 1;
+    filter: saturate(1.75) brightness(0.75) contrast(1.2);
 
     &:hover {
       filter: grayscale(0.5);
 
       .info {
-        animation: right-to-left 0.5s ease-in-out alternate;
+        animation: right-to-left 0.5s ease-in-out 0.5s forwards;
         filter: blur(0px);
-        z-index: 1;
       }
     }
 
@@ -240,7 +327,7 @@
     transform: translateY(-50%) translateX(-50%);
     height: 500px;
     width: 950px;
-    background-color: $primary-color;
+    background-color: $primary-alpha-color;
     border-radius: $primary-radius;
     box-shadow: $primary-shadow;
 
@@ -257,7 +344,7 @@
         background-color: transparent;
         color: $secondary-color;
         border: 0;
-        font-size: 2rem;
+        font-size: 1.75rem;
         cursor: pointer;
       }
 
@@ -268,7 +355,7 @@
           none,
           capitalize,
           0.1rem,
-          $bg-color,
+          $primary-color,
           right
         );
         .title {
@@ -294,7 +381,7 @@
             square,
             capitalize,
             0.1rem,
-            $bg-color,
+            $primary-color,
             left
           );
 
@@ -318,7 +405,7 @@
         object-fit: cover;
         border-top-right-radius: $primary-radius;
         border-bottom-right-radius: $primary-radius;
-        filter: saturate(1.75);
+        filter: saturate(1.75) contrast(1.2);
       }
 
       .caroussel {
@@ -334,15 +421,15 @@
             none,
             capitalize,
             0.1rem,
-            $secondary-color
+            $primary-color
           );
+
           width: 50%;
           height: 50px;
           border: 0;
           cursor: pointer;
           transition: $transition;
           background-color: $secondary-color;
-          color: $primary-color;
         }
 
         .prev:hover {
@@ -380,10 +467,258 @@
   }
 }
 
-.Form {
-  // border: 5px solid yellow;
+.Mission {
+  @include flex-container(column);
+
   height: 100vh;
   width: 100vw;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .textWrapper {
+    @include flex-container(column, center, center, 20px);
+
+    width: 80%;
+    height: 40%;
+
+    .text {
+      width: 60%;
+      @include text-style(
+        bold,
+        2rem,
+        none,
+        uppercase,
+        0.1rem,
+        $secondary-color,
+        start
+      );
+    }
+
+    .line {
+      height: 0.75px;
+      width: 75%;
+      background-color: $primary-alpha-color;
+    }
+
+    .textSub {
+      width: 60%;
+      @include text-style(
+        normal,
+        1.5rem,
+        none,
+        capitalize,
+        0.1rem,
+        $primary-color,
+        end
+      );
+    }
+  }
+
+  .reviews {
+    @include flex-container(row, flex-start, center, 25px);
+
+    width: 80%;
+    height: 60%;
+    padding: 20px;
+
+    .card {
+      @include flex-container(column, space-evenly);
+
+      padding: 20px;
+
+      background-color: $secondary-color;
+      border-radius: $primary-radius;
+      box-shadow: $primary-shadow;
+      height: 500px;
+      width: 350px;
+
+      .imgWrapper {
+        border: 1px solid $bg-color;
+        border-radius: 50%;
+        padding: 10px;
+        height: 200px;
+        width: 200px;
+        .userImg {
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 0px 1px;
+        }
+      }
+
+      .textWrapper {
+        @include flex-container(column, space-between, center);
+        @include text-style;
+
+        padding: 10px;
+        width: 100%;
+        height: 50%;
+        border: 0;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -15;
+    -webkit-clip-path: inset(30% 10% 10% 30%);
+    clip-path: inset(30% 10% 10% 30%);
+  }
+}
+
+.Preorder {
+  @include flex-container;
+
+  height: 100vh;
+  width: 100vw;
+
+  .formWrapper {
+    position: relative;
+
+    .Popup {
+      position: absolute;
+      top: -25%;
+      right: 50%;
+      transform: translateX(50%);
+      padding: 25px;
+      border-radius: $primary-radius;
+      box-shadow: $secondary-shadow;
+      height: 100px;
+      width: 50%;
+      z-index: 5;
+      @include flex-container(column);
+      @include text-style(
+        normal,
+        1rem,
+        none,
+        capitalize,
+        0.05rem,
+        $primary-color
+      );
+
+      animation: fadeInOut 2s ease;
+    }
+
+    .title {
+      @include text-style(
+        bold,
+        1.75rem,
+        none,
+        capitalize,
+        0.05rem,
+        $secondary-color
+      );
+      position: absolute;
+      top: 10%;
+      left: -20%;
+      z-index: 15;
+    }
+
+    .form {
+      @include flex-container(column, center, center, 20px);
+
+      background-color: $primary-alpha-color;
+      border-radius: $primary-radius;
+      box-shadow: $primary-shadow;
+      height: 500px;
+      width: 475px;
+
+      .subInput {
+        @include button(
+          $bg-color,
+          $secondary-color,
+          $bg-color,
+          $secondary-color,
+          1rem
+        );
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+      }
+
+      .textInput {
+        height: 30px;
+        width: 40%;
+        background-color: $bg-color;
+        color: $primary-color;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: $primary-radius;
+        border: 0;
+
+        &::placeholder {
+          color: $primary-color;
+        }
+
+        &:focus {
+          outline: none;
+          &::placeholder {
+            color: transparent;
+          }
+        }
+      }
+
+      .dateInput,
+      .timeInput {
+        height: 30px;
+        width: 30%;
+        background-color: $bg-color;
+        color: $primary-color;
+        padding: 10px;
+        border-radius: $primary-radius;
+        border: 0;
+
+        &::-webkit-calendar-picker-indicator {
+          cursor: pointer;
+        }
+
+        &::placeholder {
+          color: $primary-color;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .delBtnForm {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05rem;
+      background-color: transparent;
+      border: 0;
+      color: $primary-color;
+      text-transform: capitalize;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .btnUp {
+    position: fixed;
+    bottom: 6rem;
+    right: 6rem;
+    font-size: 1.75rem;
+    color: $secondary-color;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
   &::before {
     content: '';
@@ -442,45 +777,88 @@
   }
 }
 
-.Popup {
-  position: fixed;
-  right: 50%;
-  transform: translateX(50%);
-  top: 5%;
-  padding: 25px;
-  border-radius: $primary-radius;
-  box-shadow: $secondary-shadow;
-  height: 100px;
-  width: 200px;
-  z-index: 5;
-  @include flex-container(column);
-  @include text-style(normal, 1rem, none, capitalize, 0.05rem, $primary-color);
-
-  animation: fadeInOut 2s ease;
-}
-
 // Effects
 
 @media screen and (max-width: 1100px) {
-  .SingleItem {
-    @include flex-container(column-reverse);
-    width: 500px;
-    height: 950px;
+  // .Home {
+  //   @include flex-container(row);
+  //   position: relative;
 
-    .text {
-      width: 100%;
-    }
+  //   .Navbar {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     z-index: 15;
+  //     @include flex-container(column, space-around, center);
+  //     width: 10vw;
+  //     height: 100%;
 
-    .imgWrapper {
-      width: 100%;
+  //     .menu {
+  //       @include flex-container(column);
+  //       z-index: 15;
+  //     }
+  //   }
 
-      .img {
-        border-top-left-radius: $primary-radius;
+  //   .Hero {
+  //     // border: 2px solid yellow;
+  //     width: 100%;
+  //     height: 100%;
+
+  //     .textWrapper {
+  //       @include flex-container(column);
+  //       width: 300px;
+  //       height: 600px;
+  //       right: 10%;
+  //       top: 5%;
+
+  //       .text {
+  //         width: 100%;
+  //       }
+
+  //       .line {
+  //         height: 0.75px;
+  //         width: 75%;
+  //       }
+
+  //       .textSub {
+  //         width: 100%;
+  //       }
+  //     }
+
+  //     .videoWrapper {
+  //       position: absolute;
+  //       height: 100%;
+  //       width: 100%;
+  //       border-radius: 0;
+  //       video {
+  //         border-radius: 0;
+  //       }
+  //     }
+  //   }
+  // }
+
+  .Main {
+    .SingleItem {
+      @include flex-container(column);
+      width: 500px;
+      height: 950px;
+
+      .text {
+        width: 100%;
       }
 
-      .caroussel {
-        .btn {
-          border-radius: 0px;
+      .imgWrapper {
+        width: 100%;
+
+        .img {
+          border-bottom-left-radius: $primary-radius;
+          border-top-right-radius: 0;
+        }
+
+        .caroussel {
+          .prev {
+            border-bottom-left-radius: $primary-radius;
+          }
         }
       }
     }
@@ -490,9 +868,11 @@
 @keyframes right-to-left {
   50% {
     transform: translateX(10%) translateY(50%);
+    z-index: 1;
   }
   100% {
     transform: translateX(0%) translateY(50%);
+    z-index: 1;
   }
 }
 

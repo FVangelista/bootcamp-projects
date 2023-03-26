@@ -30,3 +30,32 @@
   color: $color;
   text-align: $t-align;
 }
+
+@mixin button(
+  $clr: $secondary-color,
+  $clr-hv: $bg-color,
+  $br-clr: transparent,
+  $br-clr-hv: $primary-color,
+  $sz: 1rem,
+  $scl: scale(1.1)
+) {
+  padding: 0.5rem 1.5rem;
+  border-radius: $primary-radius;
+  border: 1px solid $br-clr;
+
+  color: $clr;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  font-size: $sz;
+
+  cursor: pointer;
+  transition: $transition;
+  background-color: transparent;
+
+  &:hover {
+    border: 1px solid $br-clr-hv;
+    color: $clr-hv;
+    transform: $scl;
+  }
+}

@@ -17,3 +17,10 @@ export const objFilter = (obj, value) => {
 
   return arrayObj;
 };
+
+export const scrollToSection = (elRef) => {
+  window.scrollTo({
+    top: elRef.current.offsetTop,
+    behavior: 'smooth',
+  });
+};
