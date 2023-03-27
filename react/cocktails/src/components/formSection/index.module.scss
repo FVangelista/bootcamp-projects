@@ -1,0 +1,178 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Preorder {
+  @include flex-container;
+
+  height: 100vh;
+  width: 100vw;
+
+  .formWrapper {
+    position: relative;
+
+    // .Popup {
+    //   position: absolute;
+    //   top: -25%;
+    //   right: 50%;
+    //   transform: translateX(50%);
+    //   padding: 25px;
+    //   border-radius: $primary-radius;
+    //   box-shadow: $secondary-shadow;
+    //   height: 100px;
+    //   width: 50%;
+    //   z-index: 5;
+    //   @include flex-container(column);
+    //   @include text-style(
+    //     normal,
+    //     1rem,
+    //     none,
+    //     capitalize,
+    //     0.05rem,
+    //     $primary-color
+    //   );
+
+    //   animation: fadeInOut 2s ease;
+    // }
+
+    .title {
+      @include text-style(
+        bold,
+        1.75rem,
+        none,
+        capitalize,
+        0.05rem,
+        $secondary-color
+      );
+      position: absolute;
+      top: 10%;
+      left: -20%;
+      z-index: 15;
+    }
+
+    // .form {
+    //   @include flex-container(column, center, center, 20px);
+
+    //   background-color: $primary-alpha-color;
+    //   border-radius: $primary-radius;
+    //   box-shadow: $secondary-shadow;
+    //   height: 500px;
+    //   width: 475px;
+
+    //   .subInput {
+    //     @include button(
+    //       $bg-color,
+    //       $secondary-color,
+    //       $bg-color,
+    //       $secondary-color,
+    //       1rem
+    //     );
+    //     position: absolute;
+    //     bottom: 10%;
+    //     right: 10%;
+    //   }
+
+    //   .textInput {
+    //     height: 30px;
+    //     width: 40%;
+    //     background-color: $bg-color;
+    //     color: $primary-color;
+    //     text-align: center;
+    //     text-transform: uppercase;
+    //     border-radius: $primary-radius;
+    //     border: 0;
+
+    //     &::placeholder {
+    //       color: $primary-color;
+    //     }
+
+    //     &:focus {
+    //       outline: none;
+    //       &::placeholder {
+    //         color: transparent;
+    //       }
+    //     }
+    //   }
+
+    //   .dateInput,
+    //   .timeInput {
+    //     height: 30px;
+    //     width: 30%;
+    //     background-color: $bg-color;
+    //     color: $primary-color;
+    //     padding: 10px;
+    //     border-radius: $primary-radius;
+    //     border: 0;
+
+    //     &::-webkit-calendar-picker-indicator {
+    //       cursor: pointer;
+    //     }
+
+    //     &::placeholder {
+    //       color: $primary-color;
+    //     }
+
+    //     &:focus {
+    //       outline: none;
+    //     }
+    //   }
+    // }
+
+    .delBtnForm {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05rem;
+      background-color: transparent;
+      border: 0;
+      color: $primary-color;
+      text-transform: capitalize;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .btnUp {
+    position: fixed;
+    bottom: 6rem;
+    right: 6rem;
+    font-size: 1.75rem;
+    color: $secondary-color;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -15;
+    -webkit-clip-path: inset(30% 30% 10% 10%);
+    clip-path: inset(30% 30% 10% 10%);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    opacity: 0.1;
+    z-index: -15;
+    -webkit-clip-path: inset(10% 10% 30% 30%);
+    clip-path: inset(10% 10% 30% 30%);
+  }
+}

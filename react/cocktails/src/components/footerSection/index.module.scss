@@ -1,0 +1,27 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Footer {
+  @include flex-container;
+
+  // position: absolute;
+  // top: calc(100% - 75px);
+  // left: 50%;
+  // transform: translateX(-50%);
+  width: 80%;
+  height: 75px;
+  margin: 0 auto;
+
+  .logo {
+    color: $primary-color;
+    font-size: 2.5rem;
+    width: 50%;
+    text-align: center;
+  }
+
+  .info {
+    @include flex-container(row, center, center, 20px);
+    @include text-style(normal, 0.75rem);
+    width: 50%;
+  }
+}

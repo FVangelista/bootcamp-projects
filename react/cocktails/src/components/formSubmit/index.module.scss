@@ -1,0 +1,70 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.form {
+  @include flex-container(column, center, center, 20px);
+
+  background-color: $primary-alpha-color;
+  border-radius: $primary-radius;
+  box-shadow: $secondary-shadow;
+  height: 500px;
+  width: 475px;
+
+  .subInput {
+    @include button(
+      $bg-color,
+      $secondary-color,
+      $bg-color,
+      $secondary-color,
+      1rem
+    );
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+  }
+
+  .textInput {
+    height: 30px;
+    width: 40%;
+    background-color: $bg-color;
+    color: $primary-color;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: $primary-radius;
+    border: 0;
+
+    &::placeholder {
+      color: $primary-color;
+    }
+
+    &:focus {
+      outline: none;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  .dateInput,
+  .timeInput {
+    height: 30px;
+    width: 30%;
+    background-color: $bg-color;
+    color: $primary-color;
+    padding: 10px;
+    border-radius: $primary-radius;
+    border: 0;
+
+    &::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+    }
+
+    &::placeholder {
+      color: $primary-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

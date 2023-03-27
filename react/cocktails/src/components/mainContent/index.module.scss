@@ -1,0 +1,16 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Content {
+  @include flex-container(row, center, center, 0px, wrap);
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1600px;
+  height: 75%;
+  padding: 20px;
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}

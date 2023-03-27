@@ -1,0 +1,111 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Mission {
+  @include flex-container(column);
+
+  height: 100vh;
+  width: 100vw;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .textWrapper {
+    @include flex-container(column, center, center, 20px);
+
+    width: 80%;
+    height: 40%;
+
+    .text {
+      width: 60%;
+      @include text-style(
+        bold,
+        2rem,
+        none,
+        uppercase,
+        0.1rem,
+        $secondary-color,
+        start
+      );
+    }
+
+    .line {
+      height: 0.75px;
+      width: 75%;
+      background-color: $primary-alpha-color;
+    }
+
+    .textSub {
+      width: 60%;
+      @include text-style(
+        normal,
+        1.5rem,
+        none,
+        capitalize,
+        0.1rem,
+        $primary-color,
+        end
+      );
+    }
+  }
+
+  .reviews {
+    @include flex-container(row, flex-start, center, 25px);
+
+    width: 80%;
+    height: 60%;
+    padding: 20px;
+
+    .card {
+      @include flex-container(column, space-evenly);
+
+      padding: 20px;
+
+      background-color: $secondary-color;
+      border-radius: $primary-radius;
+      box-shadow: $primary-shadow;
+      height: 500px;
+      width: 350px;
+
+      .imgWrapper {
+        border: 1px solid $bg-color;
+        border-radius: 50%;
+        padding: 10px;
+        height: 200px;
+        width: 200px;
+        .userImg {
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 0px 0px;
+        }
+      }
+
+      .textWrapper {
+        @include flex-container(column, space-between, center);
+        @include text-style;
+
+        padding: 10px;
+        width: 100%;
+        height: 50%;
+        border: 0;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -15;
+    -webkit-clip-path: inset(30% 10% 10% 30%);
+    clip-path: inset(30% 10% 10% 30%);
+  }
+}
