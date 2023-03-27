@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 import { FaArrowLeft, FaArrowUp } from 'react-icons/fa';
 
-import logoNav from './assets/logoNav.svg';
+import Home from './components/home';
+
 import logo from './assets/logo.svg';
-import video from './assets/video.mp4';
+
 import reviews from './utils/mock/localData';
 
 import { GET, objFilter, scrollToSection } from './utils/utils';
@@ -23,7 +24,7 @@ function App() {
 
   const [isPopup, setPopup] = useState(false);
   const [mainList, setMainList] = useState([]);
-  const [catValue, setCatValue] = useState('Shot');
+  const [catValue, setCatValue] = useState('Cocktail');
   const [singleItemContext, setSingleItemContext] = useState({
     isVisible: false,
     payload: {},
@@ -67,15 +68,6 @@ function App() {
 }
 
 // Section Components
-function Home({ setSingleItemContext, refs }) {
-  return (
-    <section ref={refs.homeRef} className={styles.Home}>
-      <Navbar setSingleItemContext={setSingleItemContext} refs={refs} />
-
-      <Hero />
-    </section>
-  );
-}
 
 function Main(props) {
   const {
@@ -221,7 +213,7 @@ function Mission({ refs }) {
       <div className={styles.reviews}>
         {reviews.map((user) => {
           return (
-            <div className={styles.card}>
+            <div className={styles.card} key={user.id}>
               <div className={styles.imgWrapper}>
                 <img className={styles.userImg} src={user.img} alt="" />
               </div>
@@ -255,60 +247,6 @@ function Footer({ refs }) {
 }
 
 // Small Components
-
-function Navbar({ refs }) {
-  return (
-    <div className={styles.Navbar}>
-      <div className={styles.logo}>
-        <img src={logoNav} alt="" />
-      </div>
-
-      <ul className={styles.menu}>
-        <li onClick={() => scrollToSection(refs.homeRef)}>home</li>
-        <li onClick={() => scrollToSection(refs.mainRef)}>Catalog</li>
-        <li onClick={() => scrollToSection(refs.missionRef)}>mission</li>
-        <li onClick={() => scrollToSection(refs.footerRef)}>contact</li>
-      </ul>
-
-      <button
-        onClick={() => scrollToSection(refs.formRef)}
-        className={styles.btn}
-      >
-        preorder
-      </button>
-    </div>
-  );
-}
-
-function Hero() {
-  return (
-    <div className={styles.Hero}>
-      <div className={styles.textWrapper}>
-        <h1 className={styles.text}>make your choice</h1>
-        <hr className={styles.line} />
-        <h3 className={styles.textSub}>
-          A cocktail is an alcoholic mixed drink. Most commonly, cocktails are
-          either a single spirit or a combination of spirits, mixed with other
-          ingredients such as juices, flavored syrups, tonic water, shrubs, and
-          bitters.
-        </h3>
-      </div>
-      <div className={styles.textWrapperSecond}>
-        <h1 className={styles.text}>make your choice</h1>
-        <hr className={styles.line} />
-        <h3 className={styles.textSub}>
-          In the modern world and the Information Age, cocktail recipes are
-          widely shared online on websites. Cocktails and restaurants that serve
-          them are frequently covered and reviewed in tourism magazines and
-          guides.
-        </h3>
-      </div>
-      <div className={styles.videoWrapper}>
-        <video src={video} autoPlay loop muted></video>
-      </div>
-    </div>
-  );
-}
 
 function Content({ fetchList, setSingleItemContext }) {
   return (

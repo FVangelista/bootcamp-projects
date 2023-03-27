@@ -1,0 +1,41 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Navbar {
+  @include flex-container(row, space-between);
+
+  height: 10vh;
+  padding: 25px 75px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .menu {
+    @include flex-container(row, center, center, 20px);
+    @include text-style(normal, 1.25rem, none, capitalize, 0.1rem);
+
+    li {
+      transition: $transition;
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .logo {
+    color: $secondary-color;
+    font-size: 5rem;
+  }
+
+  .btn {
+    @include button(
+      $secondary-color,
+      $primary-color,
+      $secondary-color,
+      $primary-color,
+      1rem
+    );
+  }
+}

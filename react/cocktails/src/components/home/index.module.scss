@@ -1,0 +1,206 @@
+@import '../../scss/variablesDefault';
+@import '../../scss/mixins';
+
+.Home {
+  @include flex-container(column);
+
+  height: 100vh;
+  width: 100vw;
+
+  //   .Navbar {
+  //     @include flex-container(row, space-between);
+
+  //     height: 10vh;
+  //     padding: 25px 75px;
+  //     width: 100%;
+  //     max-width: 1600px;
+  //     margin: 0 auto;
+
+  //     .menu {
+  //       @include flex-container(row, center, center, 20px);
+  //       @include text-style(normal, 1.25rem, none, capitalize, 0.1rem);
+
+  //       li {
+  //         transition: $transition;
+  //         cursor: pointer;
+
+  //         &:hover {
+  //           color: $secondary-color;
+  //         }
+  //       }
+  //     }
+
+  //     .logo {
+  //       color: $secondary-color;
+  //       font-size: 5rem;
+  //     }
+
+  //     .btn {
+  //       @include button(
+  //         $secondary-color,
+  //         $primary-color,
+  //         $secondary-color,
+  //         $primary-color,
+  //         1rem
+  //       );
+  //     }
+  //   }
+
+  //   .Hero {
+  //     @include flex-container(column, space-evenly, center);
+  //     position: relative;
+  //     padding: 25px;
+  //     height: 90vh;
+  //     width: 100%;
+  //     max-width: 1600px;
+  //     margin: 0 auto;
+
+  //     .textWrapper {
+  //       @include flex-container(row-reverse, center, center, 20px);
+  //       width: 800px;
+  //       height: 300px;
+  //       padding: 25px;
+  //       position: absolute;
+  //       bottom: 6rem;
+  //       right: 6rem;
+
+  //       z-index: 15;
+
+  //       .text {
+  //         width: 30%;
+  //         @include text-style(
+  //           bold,
+  //           2rem,
+  //           none,
+  //           uppercase,
+  //           0.1rem,
+  //           $secondary-color,
+  //           start
+  //         );
+  //       }
+
+  //       .line {
+  //         height: 75%;
+  //         width: 0.75px;
+  //         background-color: $primary-alpha-color;
+  //         border: 0;
+  //       }
+
+  //       .textSub {
+  //         width: 60%;
+  //         @include text-style(
+  //           normal,
+  //           1.5rem,
+  //           none,
+  //           capitalize,
+  //           0.1rem,
+  //           $primary-color,
+  //           end
+  //         );
+  //       }
+  //     }
+
+  //     .textWrapperSecond {
+  //       @include flex-container(row, center, center, 20px);
+  //       width: 800px;
+  //       height: 250px;
+  //       padding: 25px;
+  //       position: absolute;
+  //       top: 10%;
+  //       left: 5%;
+
+  //       z-index: 15;
+
+  //       .text {
+  //         width: 30%;
+  //         @include text-style(
+  //           bold,
+  //           2rem,
+  //           none,
+  //           uppercase,
+  //           0.1rem,
+  //           $secondary-color,
+  //           end
+  //         );
+  //       }
+
+  //       .line {
+  //         height: 75%;
+  //         width: 0.75px;
+  //         background-color: $primary-alpha-color;
+  //         border: 0;
+  //       }
+
+  //       .textSub {
+  //         width: 60%;
+  //         @include text-style(
+  //           normal,
+  //           1.5rem,
+  //           none,
+  //           capitalize,
+  //           0.1rem,
+  //           $primary-color,
+  //           start
+  //         );
+  //       }
+  //     }
+
+  //     .videoWrapper {
+  //       width: 90%;
+  //       height: 610px;
+  //       margin: 0 auto;
+  //       box-shadow: $primary-shadow;
+  //       border-radius: 40px;
+
+  //       video {
+  //         width: 100%;
+  //         height: 100%;
+  //         filter: saturate(1.2);
+  //         border-radius: 40px;
+  //         object-fit: cover;
+  //         transition: $transition;
+  //         &:hover {
+  //           border-radius: 0;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url('https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: start;
+    opacity: 0.2;
+    z-index: -15;
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      15% 100%,
+      15% 20%,
+      85% 20%,
+      85% 90%,
+      15% 90%,
+      15% 100%,
+      100% 100%,
+      100% 0%
+    );
+    clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      15% 100%,
+      15% 20%,
+      85% 20%,
+      85% 90%,
+      15% 90%,
+      15% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+}
