@@ -1,0 +1,252 @@
+// Flex
+
+.flex {
+  @include flexbox();
+}
+
+@include mobile {
+  .flex-m {
+    @include flexbox();
+  }
+}
+
+@include tablet {
+  .flex-t {
+    @include flexbox();
+  }
+}
+
+@include desktop {
+  .flex-d {
+    @include flexbox();
+  }
+}
+
+//--------------------------------------------------------------------//
+
+// Flex wrap
+
+//--------------------------------------------------------------------/
+.flex-wrap {
+  @include flex-wrap(wrap);
+}
+
+@include mobile {
+  .flex-wrap-m {
+    @include flex-wrap(wrap);
+  }
+}
+
+@include tablet {
+  .flex-wrap-t {
+    @include flex-wrap(wrap);
+  }
+}
+
+@include desktop {
+  .flex-wrap-d {
+    @include flex-wrap(wrap);
+  }
+}
+
+//--------------------------------------------------------------------/
+
+// Flex direction
+
+//--------------------------------------------------------------------//
+.flex-row {
+  @include flex-direction(row);
+}
+.flex-row-reverse {
+  @include flex-direction(row-reverse);
+}
+.flex-column {
+  @include flex-direction(column);
+}
+.flex-column-reverse {
+  @include flex-direction(column-reverse);
+}
+
+@include mobile {
+  .flex-row-m {
+    @include flex-direction(row);
+  }
+  .flex-row-reverse-m {
+    @include flex-direction(row-reverse);
+  }
+  .flex-column-m {
+    @include flex-direction(column);
+  }
+  .flex-column-reverse-m {
+    @include flex-direction(column-reverse);
+  }
+}
+
+@include tablet {
+  .flex-row-t {
+    @include flex-direction(row);
+  }
+  .flex-row-reverse-t {
+    @include flex-direction(row-reverse);
+  }
+  .flex-column-t {
+    @include flex-direction(column);
+  }
+  .flex-column-reverse-t {
+    @include flex-direction(column-reverse);
+  }
+}
+
+@include desktop {
+  .flex-row-d {
+    @include flex-direction(row);
+  }
+  .flex-row-reverse-d {
+    @include flex-direction(row-reverse);
+  }
+  .flex-column-d {
+    @include flex-direction(column);
+  }
+  .flex-column-reverse-d {
+    @include flex-direction(column-reverse);
+  }
+}
+
+//--------------------------------------------------------------------//
+
+// Justify content
+
+//--------------------------------------------------------------------//
+
+.justify-content-start {
+  @include justify-content(flex-start);
+}
+
+.justify-content-end {
+  @include justify-content(flex-end);
+}
+
+.justify-content-center {
+  @include justify-content(center);
+}
+
+.justify-content-between {
+  @include justify-content(space-between);
+}
+
+.justify-content-around {
+  @include justify-content(space-around);
+}
+
+@include mobile {
+  .justify-content-start-m {
+    @include justify-content(flex-start);
+  }
+
+  .justify-content-end-m {
+    @include justify-content(flex-end);
+  }
+
+  .justify-content-center-m {
+    @include justify-content(center);
+  }
+
+  .justify-content-between-m {
+    @include justify-content(space-between);
+  }
+
+  .justify-content-around-m {
+    @include justify-content(space-around);
+  }
+}
+
+@include tablet {
+  .justify-content-start-t {
+    @include justify-content(flex-start);
+  }
+
+  .justify-content-end-t {
+    @include justify-content(flex-end);
+  }
+
+  .justify-content-center-t {
+    @include justify-content(center);
+  }
+
+  .justify-content-between-t {
+    @include justify-content(space-between);
+  }
+
+  .justify-content-around-t {
+    @include justify-content(space-around);
+  }
+}
+
+@include desktop {
+  .justify-content-start-d {
+    @include justify-content(flex-start);
+  }
+
+  .justify-content-end-d {
+    @include justify-content(flex-end);
+  }
+
+  .justify-content-center-d {
+    @include justify-content(center);
+  }
+
+  .justify-content-between-d {
+    @include justify-content(space-between);
+  }
+
+  .justify-content-around-d {
+    @include justify-content(space-around);
+  }
+}
+
+// Align items
+//--------------------------------------------------------------------//
+
+.align-items-start {
+  @include align-items(flex-start);
+}
+.align-items-end {
+  @include align-items(flex-end);
+}
+.align-items-center {
+  @include align-items(center);
+}
+
+@include mobile {
+  .align-items-start-m {
+    @include align-items(flex-start);
+  }
+  .align-items-end-m {
+    @include align-items(flex-end);
+  }
+  .align-items-center-m {
+    @include align-items(center);
+  }
+}
+@include tablet {
+  .align-items-start-t {
+    @include align-items(flex-start);
+  }
+  .align-items-end-t {
+    @include align-items(flex-end);
+  }
+  .align-items-center-t {
+    @include align-items(center);
+  }
+}
+@include desktop {
+  .align-items-start-d {
+    @include align-items(flex-start);
+  }
+  .align-items-end-d {
+    @include align-items(flex-end);
+  }
+  .align-items-center-d {
+    @include align-items(center);
+  }
+}

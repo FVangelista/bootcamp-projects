@@ -1,0 +1,8 @@
+.Home {
+  color: $dark;
+  @include size(100%);
+}
+
+.MainContentHome {
+  height: 90vh;
+}

@@ -1,0 +1,20 @@
+$container: 1920px;
+$container-small: 1240px;
+
+// Padding
+//------------------------------------------------------------------------------//
+$padding-mobile: 16px;
+$padding-tablet: 40px;
+$padding-desktop: 80px;
+
+// Margin
+//------------------------------------------------------------------------------//
+$margin-base: 40px;
+$margin-mobile: $margin-base * 0.5;
+$margin-tablet: $margin-base;
+$margin-desktop: $margin-base;
+
+// Layout
+$padding-section-desktop: 80px;
+$padding-section-tablet: 60px;
+$padding-section-mobile: 40px;

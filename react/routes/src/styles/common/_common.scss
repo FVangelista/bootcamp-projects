@@ -1,0 +1,31 @@
+.container {
+  @include max-width($container);
+
+  @include mobile {
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
+  }
+  @include tablet {
+    padding-left: $padding-tablet;
+    padding-right: $padding-tablet;
+  }
+  @include desktop {
+    padding-left: $padding-desktop;
+    padding-right: $padding-desktop;
+  }
+}
+
+.section {
+  @include mobile {
+    padding-top: $padding-section-mobile;
+    padding-bottom: $padding-section-mobile;
+  }
+  @include tablet {
+    padding-top: $padding-section-tablet;
+    padding-bottom: $padding-section-tablet;
+  }
+  @include desktop {
+    padding-top: $padding-section-desktop;
+    padding-bottom: $padding-section-desktop;
+  }
+}

@@ -1,0 +1,35 @@
+//---------------------------
+// VARIABLES
+
+$mobile: 0px;
+$tablet: 768px;
+$desktop: 1024px;
+
+//---------------------------------------------
+//MEDIA QUERY
+
+// Mobile
+//--------------------------------------------------------------------//
+@mixin mobile {
+  @media (max-width: #{$tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet) and (max-width: #{$desktop - 1}) {
+    @content;
+  }
+}
+
+@mixin min-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
