@@ -1,0 +1,16 @@
+.SingleActivity {
+  min-height: 90vh;
+  margin-top: 10vh;
+}
+
+.SingleItem {
+  padding: 40px;
+  gap: 40px;
+
+  .ItemImg {
+    width: 25%;
+    height: 350px;
+    object-fit: cover;
+    object-position: 10px;
+  }
+}

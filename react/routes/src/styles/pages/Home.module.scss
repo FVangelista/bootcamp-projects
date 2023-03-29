@@ -1,8 +1,25 @@
 .Home {
   color: $dark;
-  @include size(100%);
+
+  min-height: 100vh;
+  padding-top: 10vh;
 }
 
-.MainContentHome {
-  height: 90vh;
+.HomeHero {
+  position: absolute;
+  top: 0;
+  height: 45vh;
+  width: 100%;
+
+  .HeroImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: saturate(1.5) contrast(1.2);
+  }
+}
+
+.HomeContent {
+  margin-top: 35vh;
+  height: 55vh;
 }

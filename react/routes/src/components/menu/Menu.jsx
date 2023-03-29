@@ -1,28 +1,27 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './index.module.scss';
 
-export default function Menu(props) {
-  const { l1, l2, l3 } = props;
+import { GiAirplaneDeparture } from 'react-icons/gi';
 
+export default function Menu() {
   return (
-    <div
-      className={`${styles.Menu} flex justify-content-around align-items-center`}
+    <nav
+      className={`${styles.Menu} container flex flex-row-reverse justify-content-between align-items-center`}
     >
-      <h1 className=" h2">Home</h1>
-
-      <ul className={`${styles.MenuItem}  flex  p-big`}>
-        <li>
-          <Link to={`/${l1}`}>{l1}</Link>
-        </li>
-
-        <li>
-          <Link to={`/${l2}`}>{l2}</Link>
-        </li>
-
-        <li>
-          <Link to={`/${l3}`}>{l3}</Link>
-        </li>
+      <div className={`${styles.navLogo} flex align-items-center h2`}>
+        <GiAirplaneDeparture />
+        <span>Routes</span>
+      </div>
+      <ul className={`${styles.navList} p-big flex`}>
+        <NavLink
+          to={'/'}
+          className={({ isActive }) => (isActive ? 'active' : 'link')}
+        >
+          home
+        </NavLink>
+        <NavLink to={`/about`}>about</NavLink>
+        <NavLink to={`/activities`}>activities</NavLink>
       </ul>
-    </div>
+    </nav>
   );
 }

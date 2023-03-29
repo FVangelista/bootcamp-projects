@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import SharedLayout from './layout';
+
 import Home from './pages/Home';
 import About from './pages/About';
-import Activity from './pages/Activity';
-import City from './pages/City';
+import Activities from './pages/activities';
+import Activity from './pages/activities/id';
 
 import './index.scss';
 
@@ -19,15 +21,14 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path={'/'} element={<Home />} />
-      <Route path="about" element={<About />} />
+      <Route path={'/'} element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
 
-      <Route path="activity" element={<Activity />}>
-        <Route path=":id" element={<h2>id activity</h2>} />
-      </Route>
+        <Route path="activities" element={<Activities />} />
+        <Route path="activities/:id" element={<Activity />} />
 
-      <Route path="city" element={<City />}>
-        <Route path=":id" element={<h2>id city</h2>} />
+        <Route path="*" element={<h2>404</h2>} />
       </Route>
     </Route>
   )
