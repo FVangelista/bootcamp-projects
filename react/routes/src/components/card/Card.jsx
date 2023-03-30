@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
 import styles from './index.module.scss';
+import { AiFillStar } from 'react-icons/ai';
 
 export default function Card({ data }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/activities/${data.id}`);
+    navigate(`/activities/${data.uuid}`);
   };
 
   return (
@@ -14,13 +15,28 @@ export default function Card({ data }) {
       onClick={handleClick}
       className={`${styles.Card} flex flex-column justify-content-between`}
     >
-      <div className={styles.CardText}>
-        <h3 className="h3">{data.title.split(' ').splice(0, 2).join(' ')}</h3>
-        <p className="p-big">
-          {data.description.split(' ').splice(0, 6).join(' ')}
-        </p>
+      <div className={styles.ImgWrapper}>
+        <img
+          src={data.cover_image_url}
+          alt={data.title}
+          className={styles.CardImg}
+        />
       </div>
-      <img src={data.image} alt={data.title} className={styles.CardImg} />
+
+      <div className={styles.CardText}>
+        <div
+          className={`${styles.TextHeader} flex justify-content-between align-center`}
+        >
+          <p>
+            {data.city.name}, {data.city.country.name}
+          </p>
+          <span>
+            <AiFillStar />
+            {data.reviews_avg}
+          </span>
+        </div>
+        <p className="">{data.title.split(' ').splice(0, 5).join(' ')}...</p>
+      </div>
     </div>
   );
 }

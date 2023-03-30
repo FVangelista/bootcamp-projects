@@ -2,20 +2,19 @@ import { useState, useEffect } from 'react';
 
 import CardList from '../../components/cardList';
 
+import data from '../../mock/activities.json';
 import styles from '../../styles/pages/Activities.module.scss';
 
 export default function Activities() {
   const [dataItems, setDataItems] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => setDataItems(data));
+    setDataItems(data.data);
   }, []);
 
   return (
-    <div className={`${styles.Activities} `}>
-      <h2>Activities</h2>
+    <div className={`${styles.Activities} section `}>
+      <h2 className={styles.title}>Activities</h2>
       <CardList data={dataItems} />
     </div>
   );

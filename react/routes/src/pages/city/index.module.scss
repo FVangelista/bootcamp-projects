@@ -1,0 +1,21 @@
+.City {
+  margin-top: 7vh;
+  min-height: 90vh;
+
+  .cityWrapper {
+    width: 500px;
+    height: 750px;
+    margin: 0 auto;
+
+    .cityImg {
+      height: 50%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .cityInfo {
+      height: 50%;
+      width: 100%;
+    }
+  }
+}

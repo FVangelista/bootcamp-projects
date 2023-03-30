@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import data from '../../mock/activities.json';
 import styles from './id.module.scss';
 
 export default function SingleActivity() {
@@ -8,17 +9,16 @@ export default function SingleActivity() {
   const [dataItem, setDataItem] = useState({});
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setDataItem(data));
+    const filteredData = data.data.filter((item) => item.uuid === id);
+    setDataItem(filteredData[0]);
   }, []);
 
   return (
-    <div className={`${styles.SingleActivity} `}>
+    <div className={`${styles.SingleActivity} section`}>
       <h2>Single activity</h2>
-      <div className={`${styles.SingleItem} section flex`}>
+      <div className={`${styles.SingleItem} flex`}>
         <img
-          src={dataItem.image}
+          src={dataItem.cover_image_url}
           alt={dataItem.title}
           className={styles.ItemImg}
         />
@@ -27,6 +27,14 @@ export default function SingleActivity() {
           <p className="p-big">{dataItem.description}</p>
         </div>
       </div>
+      {/* {dataItem.categories.map((cat) => {
+        return (
+          <div className="section" key={cat.id}>
+            <h3>{cat.name}</h3>
+            <img src={cat.event_image_url} alt={cat.name} />
+          </div>
+        );
+      })} */}
     </div>
   );
 }

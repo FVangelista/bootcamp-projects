@@ -1,5 +1,7 @@
 .Menu {
-  height: 10vh;
+  border-bottom: 0.75px solid $secondary;
+  height: 7vh;
+  width: 100%;
 
   position: fixed;
   top: 0;
@@ -7,11 +9,23 @@
   transform: translateX(-50%);
   z-index: 9;
 
-  text-transform: capitalize;
   color: $primary;
+
+  transition: all 0.4s ease;
 
   .navLogo {
     gap: 20px;
+    color: $lightblue;
+  }
+
+  .navInput {
+    padding: 5px 10px;
+    border: 0.75px solid $primary;
+    border-radius: 24px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .navList {

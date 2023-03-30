@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Activities from './pages/activities';
 import Activity from './pages/activities/id';
+import City from './pages/city/id';
 
 import './index.scss';
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
 
         <Route path="activities" element={<Activities />} />
         <Route path="activities/:id" element={<Activity />} />
+        <Route path="city/:id" element={<City />} />
 
         <Route path="*" element={<h2>404</h2>} />
       </Route>

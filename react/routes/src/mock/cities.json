@@ -1,0 +1,121 @@
+{
+  "data": [
+    {
+      "id": 45,
+      "name": "Nizza",
+      "country": { "id": 60, "name": "Francia", "iso_code": "FR" },
+      "cover_image_url": "https://images.musement.com/cover/0002/49/fotolia-199353438-subscription-xxl-jpg_header-148705.jpeg",
+      "url": "https://www.musement.com/it/nizza/",
+      "time_zone": "Europe/Paris"
+    },
+    {
+      "id": 5323,
+      "name": "Fukuoka",
+      "country": { "id": 84, "name": "Giappone", "iso_code": "JP" },
+      "cover_image_url": "https://images.musement.com/cover/0097/14/adobestock-211870117-jpeg_header-9613085.jpeg",
+      "url": "https://www.musement.com/it/fukuoka/",
+      "time_zone": "Asia/Tokyo"
+    },
+    {
+      "id": 76,
+      "name": "Washington DC",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      }
+    },
+    {
+      "id": 40,
+      "name": "Parigi",
+      "country": { "id": 60, "name": "Francia", "iso_code": "FR" },
+      "cover_image_url": "https://images.musement.com/cover/0002/49/paris-jpeg_header-148745.jpeg",
+      "url": "https://www.musement.com/it/parigi/",
+      "time_zone": "Europe/Paris"
+    },
+    {
+      "id": 152,
+      "name": "Miami",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      },
+      "cover_image_url": "https://images.musement.com/cover/0002/53/miami-south-beach-xl-jpg_header-152804.jpeg",
+      "url": "https://www.musement.com/it/miami/",
+      "time_zone": "America/New_York"
+    },
+    {
+      "id": 160,
+      "name": "Marrakech",
+      "country": { "id": 118, "name": "Marocco", "iso_code": "MA" },
+      "cover_image_url": "https://images.musement.com/cover/0153/55/marrakech-jpg_header-15254531.jpg",
+      "url": "https://www.musement.com/it/marrakech/",
+      "time_zone": "Africa/Casablanca"
+    },
+    {
+      "id": 111,
+      "name": "Orlando",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      },
+      "cover_image_url": "https://images.musement.com/cover/0002/59/orlando-skyline_header-158692.jpeg",
+      "url": "https://www.musement.com/it/orlando/",
+      "time_zone": "America/New_York"
+    },
+    {
+      "id": 97,
+      "name": "Atlanta",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      },
+      "cover_image_url": "https://images.musement.com/cover/0001/06/atlanta_header-5980.jpeg",
+      "url": "https://www.musement.com/it/atlanta/",
+      "time_zone": "America/New_York"
+    },
+    {
+      "id": 208,
+      "name": "Aix en Provence",
+      "country": { "id": 60, "name": "Francia", "iso_code": "FR" },
+      "cover_image_url": "https://images.musement.com/cover/0002/48/fotolia-197733614-subscription-xxl-jpg_header-147558.jpeg",
+      "url": "https://www.musement.com/it/aix-en-provence/",
+      "time_zone": "Europe/Paris"
+    },
+    {
+      "id": 59,
+      "name": "Istanbul",
+      "country": { "id": 177, "name": "Turchia", "iso_code": "TR" },
+      "cover_image_url": "https://images.musement.com/cover/0001/04/istanbul_header-3855.jpeg",
+      "url": "https://www.musement.com/it/istanbul/",
+      "time_zone": "Europe/Istanbul"
+    },
+    {
+      "id": 152,
+      "name": "Miami",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      },
+      "cover_image_url": "https://images.musement.com/cover/0002/53/miami-south-beach-xl-jpg_header-152804.jpeg",
+      "url": "https://www.musement.com/it/miami/",
+      "time_zone": "America/New_York"
+    },
+    {
+      "id": 128,
+      "name": "Boston",
+      "country": {
+        "id": 184,
+        "name": "Stati Uniti d'America",
+        "iso_code": "US"
+      },
+      "cover_image_url": "https://images.musement.com/cover/0001/09/boston_header-8342.jpeg",
+      "url": "https://www.musement.com/it/boston/",
+      "time_zone": "America/New_York"
+    }
+  ]
+}

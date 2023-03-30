@@ -7,8 +7,8 @@ export default function CardList({ data }) {
     <div
       className={`${styles.CardList} section flex justify-content-center flex-wrap`}
     >
-      {data.map((item) => (
-        <Card data={item} key={item.id} />
+      {data.map((item, i) => (
+        <Card data={item} key={i} />
       ))}
     </div>
   );
