@@ -12,17 +12,25 @@ export default function Menu() {
   const handleChange = (e) => setInputValue(() => e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/city/${inputValue.toLowerCase()}`);
+    navigate(
+      `/city/${
+        inputValue === ' ' || inputValue === ''
+          ? '0000000'
+          : inputValue.toLowerCase()
+      }`
+    );
+
+    setInputValue(() => ' ');
   };
 
   // scroll effect nav
-  const [header, setHeader] = useState('bg-transparent');
+  const [header, setHeader] = useState('bg-alpha');
 
   const listenScrollEvent = (event) => {
-    if (window.scrollY < 30) {
-      return setHeader('');
-    } else if (window.scrollY > 30) {
-      return setHeader('bg-light');
+    if (window.scrollY < 70) {
+      return setHeader('bg-alpha');
+    } else if (window.scrollY > 70) {
+      return setHeader('bg');
     }
   };
 
@@ -34,17 +42,27 @@ export default function Menu() {
 
   return (
     <nav
-      className={`${styles.Menu} ${header} flex flex-row-reverse justify-content-around align-items-center`}
+      className={`${styles.Menu} ${header} flex flex-row-reverse  align-items-center`}
     >
       <ul className={`${styles.navList} p-big flex`}>
         <NavLink
           to={'/'}
-          className={({ isActive }) => (isActive ? 'active' : 'link')}
+          className={({ isActive }) => (isActive ? 'activeNav' : 'link')}
         >
           home
         </NavLink>
-        <NavLink to={`/about`}>about</NavLink>
-        <NavLink to={`/activities`}>activities</NavLink>
+        <NavLink
+          to={`/about`}
+          className={({ isActive }) => (isActive ? ' activeNav' : 'link')}
+        >
+          about
+        </NavLink>
+        <NavLink
+          to={`/activities`}
+          className={({ isActive }) => (isActive ? 'activeNav' : 'link')}
+        >
+          activities
+        </NavLink>
       </ul>
       <form onSubmit={handleSubmit} action="">
         <input

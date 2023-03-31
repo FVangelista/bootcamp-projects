@@ -1,4 +1,9 @@
 .Footer {
-  height: 250px;
+  border-top: 0.75px solid $secondary;
+  height: 75px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: $white;
 }

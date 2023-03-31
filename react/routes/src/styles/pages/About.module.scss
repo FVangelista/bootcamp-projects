@@ -1,4 +1,20 @@
 .About {
-  min-height: 94vh;
-  margin-top: 5vh;
+  min-height: 90vh;
+  margin-top: 7vh;
+  padding: 0px 80px;
+  color: $secondary;
+
+  .title {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 40px 0px;
+    text-transform: capitalize;
+  }
+
+  .search {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    margin: 0 auto;
+  }
 }

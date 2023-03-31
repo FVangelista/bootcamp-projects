@@ -14,27 +14,19 @@ export default function SingleActivity() {
   }, []);
 
   return (
-    <div className={`${styles.SingleActivity} section`}>
-      <h2>Single activity</h2>
-      <div className={`${styles.SingleItem} flex`}>
+    <div className={styles.SingleActivity}>
+      <h2 className={styles.title}>Single activity</h2>
+      <div className={`${styles.SingleItem} flex flex-column`}>
         <img
           src={dataItem.cover_image_url}
           alt={dataItem.title}
           className={styles.ItemImg}
         />
-        <div className={styles.ItemText}>
+        <div className={`${styles.ItemText} flex flex-column`}>
           <h3 className="h3">{dataItem.title}</h3>
-          <p className="p-big">{dataItem.description}</p>
+          <p className="p-big">{dataItem.about}</p>
         </div>
       </div>
-      {/* {dataItem.categories.map((cat) => {
-        return (
-          <div className="section" key={cat.id}>
-            <h3>{cat.name}</h3>
-            <img src={cat.event_image_url} alt={cat.name} />
-          </div>
-        );
-      })} */}
     </div>
   );
 }

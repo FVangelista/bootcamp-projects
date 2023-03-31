@@ -29,3 +29,18 @@
     padding-bottom: $padding-section-desktop;
   }
 }
+
+.activeNav {
+  color: $primary;
+}
+.link {
+  color: $secondary;
+}
+
+.bg-alpha {
+  background-color: rgba(0, 0, 0, 0.508);
+}
+
+.bg {
+  background-color: rgb(0, 0, 0);
+}

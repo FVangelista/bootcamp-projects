@@ -1,16 +1,38 @@
 .SingleActivity {
   min-height: 90vh;
   margin-top: 7vh;
+  padding: 0px 80px;
+  color: $secondary;
+}
+
+.title {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 40px 0px;
+  text-transform: capitalize;
 }
 
 .SingleItem {
-  padding: 40px;
-  gap: 40px;
+  width: 100%;
+  max-width: 900px;
+  min-height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
 
   .ItemImg {
-    width: 25%;
-    height: 350px;
+    width: 100%;
+    height: 500px;
     object-fit: cover;
-    object-position: 10px;
+    border-radius: 8px;
+    filter: saturate(1.5) contrast(1.2) brightness(0.9);
+  }
+
+  .ItemText {
+    width: 100%;
+    min-height: 20vh;
+    padding: 20px;
+    text-align: center;
+    gap: 20px;
   }
 }

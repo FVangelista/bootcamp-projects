@@ -1,16 +1,28 @@
 .City {
-  margin-top: 7vh;
   min-height: 90vh;
+  margin-top: 7vh;
+  padding: 0px 80px;
+  color: $secondary;
+
+  .title {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 40px 0px;
+    text-transform: capitalize;
+  }
 
   .cityWrapper {
-    width: 500px;
-    height: 750px;
+    width: 600px;
+    height: 300px;
     margin: 0 auto;
+    gap: 20px;
 
     .cityImg {
-      height: 50%;
-      width: 100%;
+      height: 100%;
+      width: 50%;
       object-fit: cover;
+      border-radius: 8px;
+      filter: saturate(1.5) contrast(1.2) brightness(0.9);
     }
 
     .cityInfo {
