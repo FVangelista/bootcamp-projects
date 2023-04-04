@@ -1,0 +1,31 @@
+.Hero {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  h1 {
+    font-size: 4rem;
+    width: 60%;
+    color: rgb(184, 39, 194);
+    font-weight: 400;
+  }
+
+  .texts {
+    display: flex;
+    justify-content: space-between;
+
+    & div:nth-child(2) {
+      text-align: right;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-size: 0.8rem;
+        color: rgb(123, 105, 123);
+      }
+    }
+  }
+}

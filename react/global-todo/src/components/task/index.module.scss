@@ -1,0 +1,39 @@
+.Task {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 42px;
+  color: #fff;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+
+    img,
+    button {
+      width: 50px;
+      border-radius: 100%;
+      background-color: rgb(105, 45, 112);
+    }
+
+    button {
+      border: 0;
+      color: rgb(45, 7, 48);
+      font-family: 'Eagle Lake', cursive;
+      font-size: 1.1rem;
+      filter: grayscale(0.1) contrast(0.9) saturate(1.6);
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    span {
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}
