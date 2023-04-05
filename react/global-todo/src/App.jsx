@@ -11,7 +11,7 @@ function App() {
   const [state, dispatch] = useReducer(mainReducer, initialState);
 
   const handleClick = () => {
-    dispatch({ type: 'true' });
+    dispatch({ type: 'SET_MODAL_VISIBILITY', payload: true });
   };
 
   return (

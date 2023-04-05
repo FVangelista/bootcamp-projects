@@ -1,38 +1,39 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Context } from '../../store';
 import scss from './index.module.scss';
 
 function ModalContent() {
-  const [textValue, setTextValue] = useState('');
-  const [isChecked, setChecked] = useState(null);
-
   const { state, dispatch } = useContext(Context);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({
       type: 'CREATE_NEW_TASK',
-      payload: {
-        id: state.tasksListData.length + 1,
-        todo: textValue,
-        completed: isChecked,
-        userId: Math.round(Math.random() * 10000),
-      },
+      payload: state.tempTodo,
     });
 
-    dispatch({ type: 'false' });
+    dispatch({ type: 'SET_MODAL_VISIBILITY', payload: false });
+    dispatch({ type: 'SET_TEMP_ID', payload: state.tasksListData.length + 1 });
   };
 
   const handleClick = () => {
-    dispatch({ type: 'false' });
+    dispatch({ type: 'SET_MODAL_VISIBILITY', payload: false });
   };
 
-  const handleChange = (e) => {
-    setTextValue(e.target.value);
+  const handleUsername = (e) => {
+    dispatch({ type: 'SET_TEMP_USERNAME', payload: e.target.value });
+  };
+
+  const handleTodo = (e) => {
+    dispatch({ type: 'SET_TEMP_TODO', payload: e.target.value });
+  };
+
+  const handleImg = (e) => {
+    dispatch({ type: 'SET_TEMP_IMG', payload: e.target.value });
   };
 
   const handleCheck = (e) => {
-    setChecked(e.target.checked);
+    dispatch({ type: 'SET_TEMP_CHECK', payload: e.target.checked });
   };
 
   return (
@@ -43,11 +44,14 @@ function ModalContent() {
         close
       </button>
       <form onSubmit={handleSubmit} action="" className={scss.form}>
-        <textarea
-          onChange={handleChange}
-          type="text-area"
+        <input onChange={handleUsername} type="text" placeholder="username" />
+        <input
+          onChange={handleTodo}
+          type="text"
           className={scss.text_area}
+          placeholder="todo"
         />
+        <input onChange={handleImg} type="text" placeholder="img" />
         <input onChange={handleCheck} type="checkbox" />
         <input type="submit" className={scss.btn} />
       </form>

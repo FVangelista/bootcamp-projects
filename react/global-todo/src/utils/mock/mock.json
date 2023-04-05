@@ -1,0 +1,20 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "username": "atuny0",
+      "todo": "Do something nice for someone I care about",
+      "completed": true,
+      "userId": 26,
+      "image": "https://robohash.org/FOW.png?set=set1"
+    },
+    {
+      "id": 2,
+      "username": "hbingley1",
+      "todo": "Memorize the fifty states and their capitals",
+      "completed": false,
+      "userId": 48,
+      "image": "https://robohash.org/2EA.png?set=set2"
+    }
+  ]
+}

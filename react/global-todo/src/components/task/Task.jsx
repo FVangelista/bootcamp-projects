@@ -1,24 +1,19 @@
 import { useState, useEffect, useContext } from 'react';
-
-import { GET } from '../../utils/http';
+import { Context } from '../../store';
 import { randomHSLA } from '../../utils/funcs';
 import styles from './index.module.scss';
 
 const Task = ({ taskData }) => {
-  const [userData, setUserData] = useState({});
-
-  useEffect(() => {
-    GET(`users/${taskData.userId}`).then((data) => setUserData(data));
-  }, []);
+  const { store, dispatch } = useContext(Context);
 
   return (
     <div className={styles.Task} style={{ background: `${randomHSLA()}` }}>
       <div className={styles.info}>
-        <img src={userData.image} alt={userData.username} />
+        <img src={taskData.image} alt={taskData.username} />
         {taskData.completed && <button>V</button>}
       </div>
       <div className={styles.content}>
-        <span>{userData.username}</span>
+        <span>{taskData.username}</span>
         <p>{taskData.todo}</p>
       </div>
     </div>

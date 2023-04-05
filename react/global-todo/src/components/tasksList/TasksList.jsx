@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { Context } from '../../store';
-import { GET } from '../../utils/http';
+import data from '../../utils/mock/mock.json';
 import Task from '../task/Task';
 import styles from './index.module.scss';
 
@@ -8,9 +8,7 @@ const TasksList = () => {
   const { state, dispatch } = useContext(Context);
 
   useEffect(() => {
-    GET('todos').then((res) => {
-      dispatch({ type: 'SET_TASKS_LIST', payload: res.todos });
-    });
+    dispatch({ type: 'SET_TASKS_LIST', payload: data.todos });
   }, []);
 
   return (
